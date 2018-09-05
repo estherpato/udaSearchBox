@@ -16,7 +16,7 @@ class IconInput extends Component {
             return (
                 <div>
                     <img
-                        src={PlaceIcon}
+                        src={PlaceSelectIcon}
                         alt="Place icon"
                     />
                     <img
@@ -29,7 +29,7 @@ class IconInput extends Component {
             return (
                 <div>
                     <img
-                        src={PlaceIcon}
+                        src={PlaceSelectIcon}
                         alt="Place icon"
                     />
                 </div>
@@ -38,7 +38,7 @@ class IconInput extends Component {
             return (
                 <div>
                     <img
-                        src={MapIcon}
+                        src={MapSelectIcon}
                         alt="Place icon"
                     />
                 </div>
