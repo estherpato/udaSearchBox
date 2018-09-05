@@ -10,7 +10,8 @@ class UdaSearchBox extends Component {
     this.state = {
       placeholderMap: null,
       placeholderPlace: null,
-      iconVisible: true,
+      iconVisiblePlace: true,
+      iconVisibleMap: true,
       iconActive: true,
     }
   }
@@ -19,7 +20,8 @@ class UdaSearchBox extends Component {
     const {
       placeholderMap,
       placeholderPlace,
-      iconVisible,
+      iconVisiblePlace,
+      iconVisibleMap,
       iconActive,
     } = this.state
     return (
@@ -27,7 +29,8 @@ class UdaSearchBox extends Component {
         <SearchInput
           placeholderMap={placeholderMap}
           placeholderPlace={placeholderPlace}
-          iconVisible={iconVisible}
+          iconVisiblePlace={iconVisiblePlace}
+          iconVisibleMap={iconVisibleMap}
           iconActive={iconActive}
         />
         <SearchButton />

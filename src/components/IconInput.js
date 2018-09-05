@@ -6,14 +6,46 @@ import PlaceSelectIcon from '../images/place_select.png';
 
 class IconInput extends Component {
     render() {
-        return (
-            <div>
-                <img
-                    src={PlaceIcon}
-                    alt="Place icon"
-                />
-            </div>
-        );
+        const {
+            iconVisiblePlace,
+            iconVisibleMap,
+            iconActive,
+        } = this.props
+
+        if (iconVisiblePlace && iconVisibleMap) {
+            return (
+                <div>
+                    <img
+                        src={PlaceIcon}
+                        alt="Place icon"
+                    />
+                    <img
+                        src={MapIcon}
+                        alt="Place icon"
+                    />
+                </div>
+            );
+        } else if (iconVisiblePlace) {
+            return (
+                <div>
+                    <img
+                        src={PlaceIcon}
+                        alt="Place icon"
+                    />
+                </div>
+            );
+        } else if (iconVisibleMap) {
+            return (
+                <div>
+                    <img
+                        src={MapIcon}
+                        alt="Place icon"
+                    />
+                </div>
+            );
+        } else {
+            return null;
+        }
     }
 }
 

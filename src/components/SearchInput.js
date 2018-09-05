@@ -6,17 +6,19 @@ class SearchInput extends Component {
         const {
             placeholderMap,
             placeholderPlace,
-            iconVisible,
+            iconVisiblePlace,
+            iconVisibleMap,
             iconActive,
         } = this.props
         return (
             <div>
+                <label htmlFor="input-search" style={{ display: 'none' }}>Voy a ser un label oculto</label>
                 <input type="search" id="input-search" placeholder="Voy a ser una prop" />
                 <IconInput
-                    iconVisible={iconVisible}
+                    iconVisiblePlace={iconVisiblePlace}
+                    iconVisibleMap={iconVisibleMap}
                     iconActive={iconActive}
                 />
-                <IconInput />
             </div>
         );
     }
