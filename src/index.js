@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import UdaSearchBox from './components/UdaSearchBox.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+//escribir en el readme cuales están marcadas por defecto
+
+const configUdaSearchBox = {
+    placeholderPlaces: '',
+    placeholderCadastre: '',
+    placesOn: true,
+    cadastreOn: true,
+
+    configPlaces: {},
+
+    configCadastre: {}
+}
+
+ReactDOM.render(<UdaSearchBox congif={configUdaSearchBox}/>, document.getElementById('root'));
