@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import SearchInput from './SearchInput.js';
+import Places from './AlgoliaPlaces.js';
 import SearchButton from './SearchButton';
-import UdaSearchBoxStyle from '../stylesheets/UdaSearchBoxStyle.js';
 
 class UdaSearchBox extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      placeholderMap: null,
-      placeholderPlace: null,
+      placeholder: 'Search by address',
       iconVisiblePlace: true,
       iconVisibleMap: true,
       iconActive: true,
@@ -18,17 +16,15 @@ class UdaSearchBox extends Component {
 
   render() {
     const {
-      placeholderMap,
-      placeholderPlace,
+      placeholder,
       iconVisiblePlace,
       iconVisibleMap,
       iconActive,
     } = this.state
     return (
-      <div style={UdaSearchBoxStyle}>
-        <SearchInput
-          placeholderMap={placeholderMap}
-          placeholderPlace={placeholderPlace}
+      <div>
+        <Places
+          placeholder={placeholder}
           iconVisiblePlace={iconVisiblePlace}
           iconVisibleMap={iconVisibleMap}
           iconActive={iconActive}
