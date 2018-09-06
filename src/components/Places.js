@@ -4,6 +4,7 @@ import place from 'places.js';
 
 class Places extends Component {
 
+
     componentDidMount() {
 
         let options = {
@@ -27,9 +28,12 @@ class Places extends Component {
     render() {
         const {
             placeholder,
+            status,
+            config
         } = this.props
+        console.log(this.props)
         return (
-            <div>
+            <div status={status}>
                 <label
                     htmlFor="input-search"
                     style={{ display: 'none' }}
