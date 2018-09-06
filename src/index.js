@@ -29,4 +29,4 @@ const configUdaSearchBox = {
     configCadastre: {}
 }
 
-ReactDOM.render(<UdaSearchBox congif={configUdaSearchBox}/>, document.getElementById('root'));
+ReactDOM.render(<UdaSearchBox config={configUdaSearchBox}/>, document.getElementById('root'));

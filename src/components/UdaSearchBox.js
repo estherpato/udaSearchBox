@@ -21,7 +21,7 @@ class UdaSearchBox extends Component {
       cadastreOn,
       configPlaces,
       configCadastre,
-    } = this.props;
+    } = this.props.config;
     return (
       <div>
         <Places
