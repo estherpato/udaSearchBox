@@ -7,8 +7,8 @@ import UdaSearchBox from './components/UdaSearchBox.js';
 const configUdaSearchBox = {
     placeholderPlaces: '',
     placeholderCadastre: '',
-    placesOn: true,
-    cadastreOn: true,
+    placesOn: "true",
+    cadastreOn: "true",
 
     configPlaces: {
       apiKey: '36284ef6c57222d4fea2accf5880409',
@@ -16,14 +16,14 @@ const configUdaSearchBox = {
       aroundLatLng: null,
       aroundRadius: null,
       countries: ['sp'],
-      disabled: false,
+      disabled: "false",
       language: navigator.language,
-      onChange: false,
+      onChange: "false",
       onSuggestions: null,
       onClear: null,
       templates: null,
       type: ['city', 'country', 'address', 'busStop', 'trainStation', 'townhall', 'airport'],
-      useDeviceLocation: false,
+      useDeviceLocation: "false",
     },
 
     configCadastre: {}
