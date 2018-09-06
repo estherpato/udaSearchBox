@@ -3,6 +3,7 @@ import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
+import {searchBox} from './StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class UdaSearchBox extends Component {
       configCadastre,
     } = this.props.config;
     return (
-      <div>
+      <div style = {searchBox}>
         <Places
           placeholder={placeholderPlaces}
           status={placesOn}
