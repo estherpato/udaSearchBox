@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Places from './AlgoliaPlaces.js';
+import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
 
 class UdaSearchBox extends Component {
@@ -10,7 +11,7 @@ class UdaSearchBox extends Component {
       placeholder: 'Search by address',
       iconVisiblePlace: true,
       iconVisibleMap: true,
-      iconActive: true,
+      disabled: false,
     }
   }
 
@@ -19,7 +20,7 @@ class UdaSearchBox extends Component {
       placeholder,
       iconVisiblePlace,
       iconVisibleMap,
-      iconActive,
+      disabled,
     } = this.state
     return (
       <div>
@@ -27,7 +28,12 @@ class UdaSearchBox extends Component {
           placeholder={placeholder}
           iconVisiblePlace={iconVisiblePlace}
           iconVisibleMap={iconVisibleMap}
-          iconActive={iconActive}
+          disabled={disabled}
+        />
+        <IconInput
+          iconVisiblePlace={iconVisiblePlace}
+          iconVisibleMap={iconVisibleMap}
+          disabled={disabled}
         />
         <SearchButton />
       </div>

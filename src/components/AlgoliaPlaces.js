@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import IconInput from './IconInput.js';
 import PropTypes from 'prop-types';
 import place from 'places.js';
 
@@ -13,7 +12,7 @@ class Places extends Component {
             useDeviceLocation: this.props.useDeviceLocation,
         };
 
-        const optionnalPropsKeys = ['type', 'countries', 'aroundLatLng', 'aroundRadius', 'templates', 'appId', 'apiKey', 'apiKey'];
+        const optionnalPropsKeys = ['type', 'countries', 'aroundLatLng', 'aroundRadius', 'templates', 'appId', 'apiKey'];
 
         for (let optionnalPropKey of optionnalPropsKeys) {
             if (this.props[optionnalPropKey]) { options[optionnalPropKey] = this.props[optionnalPropKey]; }
@@ -28,9 +27,6 @@ class Places extends Component {
     render() {
         const {
             placeholder,
-            iconVisiblePlace,
-            iconVisibleMap,
-            iconActive,
         } = this.props
         return (
             <div>
@@ -42,13 +38,7 @@ class Places extends Component {
                 </label>
                 <input id='urbanTourPlaces'
                     placeholder={placeholder}
-                    // disabled={this.props.disabled}
                     ref={(input) => { this.autoCompletePlace = input; }} />
-                <IconInput
-                    iconVisiblePlace={iconVisiblePlace}
-                    iconVisibleMap={iconVisibleMap}
-                    iconActive={iconActive}
-                />
             </div>
         );
     }
