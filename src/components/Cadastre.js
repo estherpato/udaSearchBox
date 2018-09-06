@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 class Cadastre extends Component {
 
     render() {
-        const {
-            placeholder,
-        } = this.props
         return (
             <div>
                 {/* <label

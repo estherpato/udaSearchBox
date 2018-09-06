@@ -7,12 +7,12 @@ import PlaceSelectIcon from '../images/place_select.png';
 class IconInput extends Component {
     render() {
         const {
-            iconVisiblePlace,
-            iconVisibleMap,
-            iconActive,
+            statusPlaces,
+            statusCadastre,
+            active,
         } = this.props
 
-        if (iconVisiblePlace && iconVisibleMap) {
+        if (statusPlaces && statusCadastre) {
             return (
                 <div>
                     <img
@@ -25,7 +25,7 @@ class IconInput extends Component {
                     />
                 </div>
             );
-        } else if (iconVisiblePlace) {
+        } else if (statusPlaces) {
             return (
                 <div>
                     <img
@@ -34,7 +34,7 @@ class IconInput extends Component {
                     />
                 </div>
             );
-        } else if (iconVisibleMap) {
+        } else if (statusCadastre) {
             return (
                 <div>
                     <img

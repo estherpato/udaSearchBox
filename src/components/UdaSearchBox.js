@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Places from './AlgoliaPlaces.js';
+import Places from './Places.js';
+import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
 
@@ -8,32 +9,35 @@ class UdaSearchBox extends Component {
     super(props);
 
     this.state = {
-      placeholder: 'Search by address',
-      iconVisiblePlace: true,
-      iconVisibleMap: true,
-      disabled: false,
+      iconActive: true,
     }
   }
 
   render() {
     const {
-      placeholder,
-      iconVisiblePlace,
-      iconVisibleMap,
-      disabled,
-    } = this.state
+      placeholderPlaces,
+      placeholderCadastre,
+      placesOn,
+      cadastreOn,
+      configPlaces,
+      configCadastre,
+    } = this.props;
     return (
       <div>
         <Places
-          placeholder={placeholder}
-          iconVisiblePlace={iconVisiblePlace}
-          iconVisibleMap={iconVisibleMap}
-          disabled={disabled}
+          placeholder={placeholderPlaces}
+          status={placesOn}
+          config={configPlaces}
+        />
+        <Cadastre
+          placeholder={placeholderCadastre}
+          status={cadastreOn}
+          config={configCadastre}
         />
         <IconInput
-          iconVisiblePlace={iconVisiblePlace}
-          iconVisibleMap={iconVisibleMap}
-          disabled={disabled}
+          statusPlaces={placesOn}
+          statusCadastre={cadastreOn}
+          active={this.state.iconActive}
         />
         <SearchButton />
       </div>
