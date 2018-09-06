@@ -10,7 +10,21 @@ const configUdaSearchBox = {
     placesOn: true,
     cadastreOn: true,
 
-    configPlaces: {},
+    configPlaces: {
+      apiKey: '36284ef6c57222d4fea2accf5880409',
+      appId: 'Z70M152WQR',
+      aroundLatLng: null,
+      aroundRadius: null,
+      countries: ['sp'],
+      disabled: false,
+      language: navigator.language,
+      onChange: false,
+      onSuggestions: null,
+      onClear: null,
+      templates: null,
+      type: ['city', 'country', 'address', 'busStop', 'trainStation', 'townhall', 'airport'],
+      useDeviceLocation: false,
+    },
 
     configCadastre: {}
 }

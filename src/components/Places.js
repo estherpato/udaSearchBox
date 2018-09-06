@@ -4,6 +4,7 @@ import place from 'places.js';
 
 class Places extends Component {
 
+
     componentDidMount() {
 
         let options = {
