@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import {buttonSearch} from './StylesSearchBox';
+import { buttonSearch } from './StylesSearchBox';
 class SearchButton extends Component {
     render() {
         return (
             <div>
-                <button style = {buttonSearch}>Search</button>
+                <button
+                    style={buttonSearch}
+                    type="submit"
+                    onClick={this.props.onSubmitHandler}
+                >
+                    Search
+                </button>
             </div>
         );
     }

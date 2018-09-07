@@ -16,6 +16,7 @@ class UdaSearchBox extends Component {
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
 
   onChangeHandler(e) {
@@ -28,9 +29,9 @@ class UdaSearchBox extends Component {
     })
   }
 
-  // onSubmitHandler(lat,lng) {
-  // 
-  // }
+  onSubmitHandler() {
+    console.log('soy el botón')
+  }
 
   render() {
     const {
@@ -61,7 +62,7 @@ class UdaSearchBox extends Component {
           active={this.state.iconActive}
         />
         <SearchButton
-          onSubmitHandler={onSubmit}
+          onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
           lng={this.state.lng}
         />
