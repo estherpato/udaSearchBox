@@ -21,7 +21,7 @@ class Places extends Component {
         }
 
         const autocomplete = place(options);
-        autocomplete.on('change', this.props.onChange);
+        autocomplete.on('change', this.props.onChangeHandler);
         autocomplete.on('suggestions', this.props.onSuggestions);
         autocomplete.on('clear', this.props.onClear);
     }
@@ -34,7 +34,7 @@ class Places extends Component {
         } = this.props
         console.log(this.props)
         return (
-            <div status={status}>
+            <form status={status}>
                 <label
                     htmlFor="input-search"
                     style={{ display: 'none' }}
@@ -44,7 +44,7 @@ class Places extends Component {
                 <input style={inputBox} id='urbanTourPlaces'
                     placeholder={placeholder}
                     ref={(input) => { this.autoCompletePlace = input; }} />
-            </div>
+            </form>
         );
     }
 }
@@ -58,7 +58,7 @@ Places.propTypes = {
     countries: PropTypes.arrayOf(PropTypes.string),
     disabled: PropTypes.bool,
     language: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
+    // onChange: PropTypes.func.isRequired,
     onSuggestions: PropTypes.func.isRequired,
     onClear: PropTypes.func.isRequired,
     templates: PropTypes.object,
