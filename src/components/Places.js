@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
+import {inputBox} from './StylesSearchBox';
 
 class Places extends Component {
 
@@ -40,7 +41,7 @@ class Places extends Component {
                 >
                     {placeholder}
                 </label>
-                <input id='urbanTourPlaces'
+                <input style={inputBox} id='urbanTourPlaces'
                     placeholder={placeholder}
                     ref={(input) => { this.autoCompletePlace = input; }} />
             </div>

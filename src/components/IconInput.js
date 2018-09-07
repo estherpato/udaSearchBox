@@ -3,6 +3,8 @@ import MapIcon from '../images/map.png';
 import MapSelectIcon from '../images/map_select.png';
 import PlaceIcon from '../images/place.png';
 import PlaceSelectIcon from '../images/place_select.png';
+import {IconsBox, mapIconBox, placeIconBox} from './StylesSearchBox';
+
 
 class IconInput extends Component {
     render() {
@@ -14,12 +16,12 @@ class IconInput extends Component {
 
         if (statusPlaces && statusCadastre) {
             return (
-                <div>
-                    <img
+                <div style = {IconsBox}>
+                    <img style = {placeIconBox}
                         src={PlaceSelectIcon}
                         alt="Place icon"
                     />
-                    <img
+                    <img style = {mapIconBox}
                         src={MapIcon}
                         alt="Place icon"
                     />
