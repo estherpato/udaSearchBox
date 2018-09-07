@@ -3,7 +3,7 @@ import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
-import {searchBox} from './StylesSearchBox';
+import { searchBox } from './StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -11,8 +11,26 @@ class UdaSearchBox extends Component {
 
     this.state = {
       iconActive: true,
+      lat: null,
+      lng: null,
     }
+
+    this.onChangeHandler = this.onChangeHandler.bind(this);
   }
+
+  onChangeHandler(e) {
+    const lat = e.suggestion.latlng.lat;
+    const lng = e.suggestion.latlng.lng;
+
+    this.setState({
+      lat: lat,
+      lng: lng
+    })
+  }
+
+  // onSubmitHandler(lat,lng) {
+  // 
+  // }
 
   render() {
     const {
@@ -20,15 +38,17 @@ class UdaSearchBox extends Component {
       placeholderCadastre,
       placesOn,
       cadastreOn,
+      onSubmit,
       configPlaces,
       configCadastre,
     } = this.props.config;
     return (
-      <div style = {searchBox}>
+      <div style={searchBox}>
         <Places
           placeholder={placeholderPlaces}
           status={placesOn}
           config={configPlaces}
+          onChangeHandler={this.onChangeHandler}
         />
         <Cadastre
           placeholder={placeholderCadastre}
@@ -40,7 +60,11 @@ class UdaSearchBox extends Component {
           statusCadastre={cadastreOn}
           active={this.state.iconActive}
         />
-        <SearchButton />
+        <SearchButton
+          onSubmitHandler={onSubmit}
+          lat={this.state.lat}
+          lng={this.state.lng}
+        />
       </div>
     );
   }

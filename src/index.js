@@ -9,6 +9,7 @@ const configUdaSearchBox = {
   placeholderCadastre: '',
   placesOn: "true",
   cadastreOn: "true",
+  onSubmit: null,
 
   configPlaces: {
     apiKey: '36284ef6c57222d4fea2accf5880409',
@@ -18,7 +19,7 @@ const configUdaSearchBox = {
     countries: ['sp'],
     disabled: "false",
     language: navigator.language,
-    onChange: "false",
+    onChange: false,
     onSuggestions: null,
     onClear: null,
     templates: null,
