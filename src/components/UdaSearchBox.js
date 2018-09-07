@@ -30,7 +30,9 @@ class UdaSearchBox extends Component {
   }
 
   onSubmitHandler() {
-    console.log('soy el botón')
+    const lat = this.state.lat;
+    const lng = this.state.lng;
+    console.log(lat, lng)
   }
 
   render() {
