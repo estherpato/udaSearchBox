@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import {buttonSearch} from './StylesSearchBox';
 class SearchButton extends Component {
     render() {
         return (
             <div>
-                <button>Search</button>
+                <button style = {buttonSearch}>Search</button>
             </div>
         );
     }
