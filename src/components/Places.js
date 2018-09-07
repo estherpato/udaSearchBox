@@ -20,7 +20,7 @@ class Places extends Component {
         }
 
         const autocomplete = place(options);
-        autocomplete.on('change', this.props.onChange);
+        autocomplete.on('change', (suggestions) => console.log('latlng', suggestions.suggestion.latlng));
         autocomplete.on('suggestions', this.props.onSuggestions);
         autocomplete.on('clear', this.props.onClear);
     }
@@ -33,7 +33,7 @@ class Places extends Component {
         } = this.props
         console.log(this.props)
         return (
-            <div status={status}>
+            <form status={status}>
                 <label
                     htmlFor="input-search"
                     style={{ display: 'none' }}
@@ -43,7 +43,7 @@ class Places extends Component {
                 <input id='urbanTourPlaces'
                     placeholder={placeholder}
                     ref={(input) => { this.autoCompletePlace = input; }} />
-            </div>
+            </form>
         );
     }
 }
@@ -57,7 +57,7 @@ Places.propTypes = {
     countries: PropTypes.arrayOf(PropTypes.string),
     disabled: PropTypes.bool,
     language: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
+    // onChange: PropTypes.func.isRequired,
     onSuggestions: PropTypes.func.isRequired,
     onClear: PropTypes.func.isRequired,
     templates: PropTypes.object,
@@ -69,7 +69,7 @@ Places.defaultProps = {
     disabled: false,
     language: navigator.language,
     useDeviceLocation: false,
-    onChange: (query, rawAnswer, suggestion, suggestionIndex) => console.log(query, rawAnswer, suggestion, suggestionIndex),
+    // onChange: (query, rawAnswer, suggestion, suggestionIndex) => console.log(query, rawAnswer, suggestion, suggestionIndex),
     onSuggestions: (query, rawAnswer, suggestions) => console.log(query, rawAnswer, suggestions),
     onClear: (query) => console.log(query),
 };
