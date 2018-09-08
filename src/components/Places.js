@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
-import {inputBox} from './StylesSearchBox';
+import {inputBox} from './stylesheets/StylesSearchBox';
 
 class Places extends Component {
 

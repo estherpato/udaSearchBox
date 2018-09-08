@@ -3,7 +3,7 @@ import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
-import { searchBox } from './StylesSearchBox';
+import { searchBox } from './stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {

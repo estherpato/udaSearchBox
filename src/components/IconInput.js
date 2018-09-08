@@ -3,7 +3,7 @@ import MapIcon from '../images/map.png';
 import MapSelectIcon from '../images/map_select.png';
 import PlaceIcon from '../images/place.png';
 import PlaceSelectIcon from '../images/place_select.png';
-import {IconsBox, mapIconBox, placeIconBox} from './StylesSearchBox';
+import {IconsBox, mapIconBox, placeIconBox} from './stylesheets/StylesSearchBox';
 
 
 class IconInput extends Component {
