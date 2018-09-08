@@ -7,8 +7,8 @@ import UdaSearchBox from './components/UdaSearchBox.js';
 const configUdaSearchBox = {
   placeholderPlaces: '',
   placeholderCadastre: '',
-  placesOn: "true",
-  cadastreOn: "true",
+  placesOn: true, //botón clickado
+  cadastreOn: true, //botón clickado
   onSubmit: null,
 
   configPlaces: {
@@ -17,7 +17,7 @@ const configUdaSearchBox = {
     aroundLatLng: null,
     aroundRadius: null,
     countries: ['sp'],
-    disabled: "false",
+    disabled: "false", // llamada activa o no
     language: navigator.language,
     onChange: false,
     onSuggestions: null,
