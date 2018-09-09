@@ -3,20 +3,23 @@ import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
-import { searchBox } from './stylesheets/StylesSearchBox';
+import { searchBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      iconActive: true,
+      placesActive: true,
+      cadastreActive: false,
       lat: null,
       lng: null,
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
+    this.onClickHandlerPlaces = this.onClickHandlerPlaces.bind(this);
+    this.onClickHandlerCadastre = this.onClickHandlerCadastre.bind(this);
   }
 
   onChangeHandler(e) {
@@ -35,6 +38,20 @@ class UdaSearchBox extends Component {
     console.log(lat, lng)
   }
 
+  onClickHandlerPlaces(e) {
+    this.setState({
+      placesActive: true,
+      cadastreActive: false,
+    })
+  }
+
+  onClickHandlerCadastre() {
+    this.setState({
+      placesActive: false,
+      cadastreActive: true,
+    })
+  }
+
   render() {
     const {
       placeholderPlaces,
@@ -49,19 +66,20 @@ class UdaSearchBox extends Component {
       <div style={searchBox}>
         <Places
           placeholder={placeholderPlaces}
-          status={placesOn}
           config={configPlaces}
           onChangeHandler={this.onChangeHandler}
         />
         <Cadastre
           placeholder={placeholderCadastre}
-          status={cadastreOn}
           config={configCadastre}
         />
         <IconInput
           statusPlaces={placesOn}
           statusCadastre={cadastreOn}
-          active={this.state.iconActive}
+          placesActive={this.state.placesActive}
+          cadastreActive={this.state.cadastreActive}
+          onClickHandlerPlaces={this.onClickHandlerPlaces}
+          onClickHandlerCadastre={this.onClickHandlerCadastre}
         />
         <SearchButton
           onSubmitHandler={this.onSubmitHandler}

@@ -3,7 +3,7 @@ import MapIcon from '../images/map.png';
 import MapSelectIcon from '../images/map_select.png';
 import PlaceIcon from '../images/place.png';
 import PlaceSelectIcon from '../images/place_select.png';
-import {IconsBox, mapIconBox, placeIconBox} from './stylesheets/StylesSearchBox';
+import { IconsBox, mapIconBox, placeIconBox } from '../stylesheets/StylesSearchBox';
 
 
 class IconInput extends Component {
@@ -11,19 +11,37 @@ class IconInput extends Component {
         const {
             statusPlaces,
             statusCadastre,
-            active,
+            placesActive,
+            cadastreActive,
+            onClickHandlerPlaces,
+            onClickHandlerCadastre,
         } = this.props
+
+        let placesImage;
+        let cadastreImage;
+
+        if (placesActive) {
+            placesImage = PlaceSelectIcon
+            cadastreImage = MapIcon
+        } else {
+            placesImage = PlaceIcon
+            cadastreImage = MapSelectIcon
+        }
 
         if (statusPlaces && statusCadastre) {
             return (
-                <div style = {IconsBox}>
-                    <img style = {placeIconBox}
-                        src={PlaceSelectIcon}
+                <div style={IconsBox}>
+                    <img
+                        style={placeIconBox}
+                        src={placesImage}
                         alt="Place icon"
+                        onClick={onClickHandlerPlaces}
                     />
-                    <img style = {mapIconBox}
-                        src={MapIcon}
+                    <img
+                        style={mapIconBox}
+                        src={cadastreImage}
                         alt="Place icon"
+                        onClick={onClickHandlerCadastre}
                     />
                 </div>
             );
