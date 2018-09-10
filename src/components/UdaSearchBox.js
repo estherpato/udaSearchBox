@@ -3,6 +3,7 @@ import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
+import { getToken } from '../services/Auth.js';
 import { searchBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
@@ -14,6 +15,7 @@ class UdaSearchBox extends Component {
       cadastreActive: false,
       lat: null,
       lng: null,
+      token: '',
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -22,14 +24,16 @@ class UdaSearchBox extends Component {
     this.onClickHandlerCadastre = this.onClickHandlerCadastre.bind(this);
   }
 
-  onChangeHandler(e) {
-    const lat = e.suggestion.latlng.lat;
-    const lng = e.suggestion.latlng.lng;
+  componentDidMount() {
+    getToken('adalab', '4286')
+  }
 
+  onChangeHandler(lat, lng) {
     this.setState({
       lat: lat,
       lng: lng
     })
+    this.props.onChange(lat, lng)
   }
 
   onSubmitHandler() {
