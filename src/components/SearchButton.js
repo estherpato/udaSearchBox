@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { buttonSearch } from './StylesSearchBox';
+import { buttonSearch } from '../stylesheets/StylesSearchBox';
+
 class SearchButton extends Component {
     render() {
         return (

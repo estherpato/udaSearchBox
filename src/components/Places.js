@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
-import {inputBox} from './StylesSearchBox';
+import {inputBox} from '../stylesheets/StylesSearchBox';
 
 class Places extends Component {
-
 
     componentDidMount() {
 
@@ -29,12 +28,12 @@ class Places extends Component {
     render() {
         const {
             placeholder,
-            status,
+            statusPlaces,
             config
         } = this.props
         console.log(this.props)
         return (
-            <form status={status}>
+            <form status={statusPlaces}>
                 <label
                     htmlFor="input-search"
                     style={{ display: 'none' }}
