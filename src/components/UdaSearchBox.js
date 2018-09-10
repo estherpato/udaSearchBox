@@ -3,7 +3,7 @@ import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
-import { searchBox } from '../stylesheets/StylesSearchBox';
+import { searchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class UdaSearchBox extends Component {
       cadastreActive: false,
       lat: null,
       lng: null,
+      // style: false,
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -28,7 +29,8 @@ class UdaSearchBox extends Component {
 
     this.setState({
       lat: lat,
-      lng: lng
+      lng: lng,
+      // style:false,
     })
   }
 
@@ -64,6 +66,7 @@ class UdaSearchBox extends Component {
     } = this.props.config;
     return (
       <div style={searchBox}>
+      <div style={imputIconsBox}>
         <Places
           placeholder={placeholderPlaces}
           config={configPlaces}
@@ -81,6 +84,7 @@ class UdaSearchBox extends Component {
           onClickHandlerPlaces={this.onClickHandlerPlaces}
           onClickHandlerCadastre={this.onClickHandlerCadastre}
         />
+      </div>
         <SearchButton
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
