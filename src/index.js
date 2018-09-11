@@ -25,6 +25,7 @@ const configUdaSearchBox = {
     templates: null,
     type: ['city', 'country', 'address', 'busStop', 'trainStation', 'townhall', 'airport'],
     useDeviceLocation: "false",
+    style: false,
   },
 
   configCadastre: {}
