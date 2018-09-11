@@ -3,6 +3,8 @@ import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
+// import { getToken } from '../services/Auth.js';
+import request from 'axios';
 import { searchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
@@ -14,7 +16,7 @@ class UdaSearchBox extends Component {
       cadastreActive: false,
       lat: null,
       lng: null,
-      // style: false,
+      token: '',
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -23,21 +25,44 @@ class UdaSearchBox extends Component {
     this.onClickHandlerCadastre = this.onClickHandlerCadastre.bind(this);
   }
 
-  onChangeHandler(e) {
-    const lat = e.suggestion.latlng.lat;
-    const lng = e.suggestion.latlng.lng;
+  componentDidMount() {
+    this.getToken('adalab', '4286')
+  }
 
+  getToken(user, pwd) {
+    const reports = {
+      url: 'https://reds.urbandataanalytics.com/management/api/v1.0/login',
+      data: { 'username': user, 'password': pwd },
+      headers: { 'Content-Type': 'application/json' }
+    };
+
+    return new Promise((resolve, reject) => {
+      request.post(reports.url, reports.data, { headers: reports.headers })
+        .then(res => {
+          const authToken = res.data.authToken;
+          console.log(authToken)
+          this.setState({ token: authToken }, () => console.log('token', this.state.token));
+        })
+        .catch(e => {
+          //resolve(e.response.data.error)
+          resolve(e.response)
+        })
+    })
+  }
+
+  onChangeHandler(lat, lng) {
     this.setState({
       lat: lat,
       lng: lng,
       // style:false,
     })
+    this.props.onChange(lat, lng)
   }
 
   onSubmitHandler() {
     const lat = this.state.lat;
     const lng = this.state.lng;
-    console.log(lat, lng)
+    console.log('lat,lng', lat, lng)
   }
 
   onClickHandlerPlaces(e) {
