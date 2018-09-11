@@ -78,9 +78,11 @@ class UdaSearchBox extends Component {
   }
 
   onSubmitHandler() {
-    const lat = this.state.lat;
-    const lng = this.state.lng;
-    console.log('lat,lng', lat, lng)
+    console.log(this.props);
+    //this.props.cadastreOn=true ? console.log('hola catastro') :
+    // const lat = this.state.lat;
+    // const lng = this.state.lng;
+    //console.log('hola palces')
   }
 
   onClickHandlerPlaces(e) {

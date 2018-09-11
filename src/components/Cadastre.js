@@ -18,9 +18,7 @@ class Cadastre extends Component {
   }
 
 
-
   componentDidMount() {
-
     const {token,url} = this.props;
     const textToken = 'Token ';
     const concatToken = textToken.concat(token);
