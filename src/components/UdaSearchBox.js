@@ -3,10 +3,10 @@ import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
-// import { getToken } from '../services/Auth.js';
+import { getToken } from '../services/auth.js';
 import axios from 'axios';
-import request from 'axios';
-import {searchBox, imputIconsBox} from '../stylesheets/StylesSearchBox';
+import '../stylesheets/style.css';
+import {SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -31,33 +31,11 @@ class UdaSearchBox extends Component {
   }
 
   componentDidMount() {
-    this.getToken('adalab', '4286')
-  }
-
-  getToken(user, pwd) {
-    const reports = {
-      url: 'https://reds.urbandataanalytics.com/management/api/v1.0/login',
-      data: {
-        'username': user,
-        'password': pwd
-      },
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
-
-    return new Promise((resolve, reject) => {
-      request.post(reports.url, reports.data, {headers: reports.headers}).then(res => {
+    getToken('adalab', '4286')
+      .then((res) => {
         const authToken = res.data.authToken;
-        console.log(authToken)
-        this.setState({
-          token: authToken
-        }, () => console.log('token', this.state.token));
-      }).catch(e => {
-        //resolve(e.response.data.error)
-        resolve(e.response)
+        this.setState({ token: authToken }, () => console.log('token', this.state.token));
       })
-    })
   }
 
   onChangeHandler(lat, lng) {
@@ -66,7 +44,7 @@ class UdaSearchBox extends Component {
       lng: lng,
       // style:false,
     })
-    //this.props.onChange(lat, lng)
+    this.props.onChange(lat, lng)
   }
 
   onChangeCadastre(e) {
@@ -77,7 +55,7 @@ class UdaSearchBox extends Component {
         url: 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/' + this.state.refCadastre
       })
     });
-    console.log(this.state.url)
+    console.log(this.state.refCadastre)
   }
 
 
@@ -85,7 +63,7 @@ class UdaSearchBox extends Component {
     const {token,url} = this.state;
     const textToken = 'Token ';
     const concatToken = textToken.concat(token);
-    console.log(url)
+    console.log(concatToken)
 
     axios({
       url: url,
@@ -111,7 +89,7 @@ class UdaSearchBox extends Component {
     })
 
   }
-  
+
   onSubmitHandler(e) {
     if (this.state.placesActive) {
       const lat = this.state.lat;
@@ -141,14 +119,36 @@ class UdaSearchBox extends Component {
       configCadastre
     } = this.props.config;
 
-    return (<div style={searchBox}>
-      <div style={imputIconsBox}>
-        {(this.state.placesActive && placesOn || (!cadastreOn)) && <Places placeholder={placeholderPlaces} config={configPlaces} onChangeHandler={this.onChangeHandler}/>}
-        {((this.state.cadastreActive && cadastreOn) || (!placesOn && cadastreOn)) && <Cadastre placeholder={placeholderCadastre} config={configCadastre} onChangeCadastre={this.onChangeCadastre} url={this.state.url} token={this.state.token}/>}
-        <IconInput statusPlaces={placesOn} statusCadastre={cadastreOn} placesActive={this.state.placesActive} cadastreActive={this.state.cadastreActive} onClickHandlerPlaces={this.onClickHandlerPlaces} onClickHandlerCadastre={this.onClickHandlerCadastre}/>
+    return (
+      <div style={SearchBox}>
+        <div style={imputIconsBox}>
+          {((this.state.placesActive && placesOn) || (!cadastreOn)) && <Places
+            placeholder={placeholderPlaces}
+            config={configPlaces}
+            onChangeHandler={this.onChangeHandler}
+          />}
+          {((this.state.cadastreActive && cadastreOn) || (!placesOn && cadastreOn)) && <Cadastre
+            placeholder={placeholderCadastre}
+            config={configCadastre}
+            onChangeCadastre={this.onChangeCadastre}
+          />}
+          <IconInput
+            statusPlaces={placesOn}
+            statusCadastre={cadastreOn}
+            placesActive={this.state.placesActive}
+            cadastreActive={this.state.cadastreActive}
+            onClickHandlerPlaces={this.onClickHandlerPlaces}
+            onClickHandlerCadastre={this.onClickHandlerCadastre}
+          />
+        </div>
+        <SearchButton
+          config={configCadastre}
+          onSubmitHandler={this.onSubmitHandler}
+          lat={this.state.lat}
+          lng={this.state.lng}
+        />
       </div>
-      <SearchButton config={configCadastre} onSubmitHandler={this.onSubmitHandler} lat={this.state.lat} lng={this.state.lng}/>
-    </div>);
+      );
   }
 }
 

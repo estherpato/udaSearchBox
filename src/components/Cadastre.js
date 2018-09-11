@@ -1,33 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { inputBox, searchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
-
-
+import {inputBox, formCadastre,inputCadastre } from '../stylesheets/StylesSearchBox';
 
 class Cadastre extends Component {
-  render() {
-    const {
-        placeholder,
-        statusCadastre,
-        config,
-        onChangeCadastre,
-    } = this.props
+    render() {
+        const {
+            placeholder,
+            statusCadastre,
+            config,
+            onChangeCadastre
+        } = this.props
+    console.log(this.props)
+
     return (
-    <div style={searchBox}>
-    <div style={imputIconsBox}>
-      <form status={statusCadastre}>
-      <label htmlFor="input-search"
-      //  style={{display: 'none'}}
+      <form
+      status={statusCadastre}
+      style={formCadastre}
       >
+      <label htmlFor="input-search" style={{
+          display: 'none'
+        }}>
         {placeholder}
       </label>
-      <input style={inputBox} type='text' onChange={onChangeCadastre}/>
-    </form>
-  </div>
-  </div>
-
-    );
-
+      <input style= {inputCadastre} type='text' onChange={onChangeCadastre}/>
+    </form>);
   }
 }
 
