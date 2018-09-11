@@ -5,7 +5,6 @@ import PlaceIcon from '../images/place.png';
 import PlaceSelectIcon from '../images/place_select.png';
 import { IconsBox, mapIconBox, placeIconBox } from '../stylesheets/StylesSearchBox';
 
-
 class IconInput extends Component {
     render() {
         const {

@@ -29,7 +29,9 @@ const configUdaSearchBox = {
     style: false,
   },
 
-  configCadastre: {}
+  configCadastre: {
+    onChange: false
+  }
 }
 
 ReactDOM.render(<UdaSearchBox config={configUdaSearchBox} />, document.getElementById('root'));
