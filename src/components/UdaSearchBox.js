@@ -4,7 +4,8 @@ import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
-import { searchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
+import '../stylesheets/style.css';
+import {SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -78,7 +79,7 @@ class UdaSearchBox extends Component {
     } = this.props.config;
 
     return (
-      <div style={searchBox}>
+      <div style={SearchBox}>
         <div style={imputIconsBox}>
           {((this.state.placesActive && placesOn) || (!cadastreOn)) && <Places
             placeholder={placeholderPlaces}

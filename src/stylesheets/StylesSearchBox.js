@@ -1,5 +1,4 @@
-const searchBox = {
-    //  style: 'false',
+const SearchBox = {
     display: 'flex',
     flexDirection: 'row',
     minWidth: '350px',
@@ -17,14 +16,14 @@ const imputIconsBox = {
 
 const buttonSearch = {
     flexGrow: '0',
-    width: '70px',
-    height: '35px',
-    padding: '5px',
-    border: '0px',
-    background: '#CA1C24',
-    color: 'white',
-    textTransform: 'uppercase',
-    left: '-66px'
+     width: '70px',
+     height: '35px',
+     padding: '5px',
+     border: '0px',
+     background: '#CA1C24',
+     color: 'white',
+     textTransform: 'uppercase',
+     left: '-66px',
 }
 
 const IconsBox = {
@@ -57,6 +56,17 @@ const inputBox = {
     border: '0px solid #EFF2F7',
 }
 
+const formCadastre = {
+    display: 'flex',
+}
+
+const inputCadastre = {
+    width:'100%',
+    height: '35px',
+    padding: '0px',
+    backgroundColor: '#EFF2F7',
+    border: '0px solid #EFF2F7',
+}
 
 
 
@@ -68,4 +78,4 @@ const inputBox = {
 
 
 
-export { algoliaStyles, searchBox, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox };
+export {SearchBox,algoliaStyles, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox,formCadastre,inputCadastre };
