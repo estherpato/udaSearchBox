@@ -60,7 +60,7 @@ class UdaSearchBox extends Component {
     this.props.onChange(lat, lng)
   }
 
-  onChangeCadastre (e) {
+  onChangeCadastre(e) {
     console.log('cadastre');
   }
 
@@ -98,12 +98,12 @@ class UdaSearchBox extends Component {
     return (
       <div style={searchBox}>
         <div style={imputIconsBox}>
-          {this.state.placesActive && <Places
+          {(this.state.placesActive && placesOn || (!cadastreOn)) && <Places
             placeholder={placeholderPlaces}
             config={configPlaces}
             onChangeHandler={this.onChangeHandler}
           />}
-          {this.state.cadastreActive && <Cadastre
+          {((this.state.cadastreActive && cadastreOn) || (!placesOn && cadastreOn)) && <Cadastre
             placeholder={placeholderCadastre}
             config={configCadastre}
           />}
@@ -118,6 +118,7 @@ class UdaSearchBox extends Component {
         </div>
 
         <SearchButton
+          config={configCadastre}
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
           lng={this.state.lng}
