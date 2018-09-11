@@ -92,36 +92,31 @@ class UdaSearchBox extends Component {
 
     return (
       <div style={searchBox}>
-<<<<<<< HEAD
-        {this.state.placesActive && <Places
-=======
-      <div style={imputIconsBox}>
-        <Places
->>>>>>> develop
-          placeholder={placeholderPlaces}
-          config={configPlaces}
-          onChangeHandler={this.onChangeHandler}
-        />}
-        {this.state.cadastreActive && <Cadastre
-          placeholder={placeholderCadastre}
-          config={configCadastre}
-        />}
-
-        <IconInput
-          statusPlaces={placesOn}
-          statusCadastre={cadastreOn}
-          placesActive={this.state.placesActive}
-          cadastreActive={this.state.cadastreActive}
-          onClickHandlerPlaces={this.onClickHandlerPlaces}
-          onClickHandlerCadastre={this.onClickHandlerCadastre}
-        />
-      </div>
+        <div style={imputIconsBox}>
+          {this.state.placesActive && <Places
+            placeholder={placeholderPlaces}
+            config={configPlaces}
+            onChangeHandler={this.onChangeHandler}
+          />}
+          {this.state.cadastreActive && <Cadastre
+            placeholder={placeholderCadastre}
+            config={configCadastre}
+          />}
+          <IconInput
+            statusPlaces={placesOn}
+            statusCadastre={cadastreOn}
+            placesActive={this.state.placesActive}
+            cadastreActive={this.state.cadastreActive}
+            onClickHandlerPlaces={this.onClickHandlerPlaces}
+            onClickHandlerCadastre={this.onClickHandlerCadastre}
+          />
+        </div>
         <SearchButton
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
           lng={this.state.lng}
         />
-      </div>
+      </div >
     );
   }
 }
