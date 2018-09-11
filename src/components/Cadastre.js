@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {inputBox} from '../stylesheets/StylesSearchBox';
+import {inputBox, formCadastre,inputCadastre } from '../stylesheets/StylesSearchBox';
 
 const url = 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/8925602VK3782F0012JB';
 
@@ -54,13 +54,16 @@ class Cadastre extends Component {
         onChangeCadastre
     } = this.props
     return (
-      <form status={statusCadastre}>
+      <form 
+      status={statusCadastre}
+      style={formCadastre}
+      >
       <label htmlFor="input-search" style={{
           display: 'none'
         }}>
         {placeholder}
       </label>
-      <input style={inputBox} type='text' onChange={onChangeCadastre}/>
+      <input style= {inputCadastre} type='text' onChange={onChangeCadastre}/>
     </form>);
   }
 }
