@@ -20,6 +20,7 @@ class UdaSearchBox extends Component {
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onChangeCadastre = this.onChangeCadastre.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.onClickHandlerPlaces = this.onClickHandlerPlaces.bind(this);
     this.onClickHandlerCadastre = this.onClickHandlerCadastre.bind(this);
@@ -57,6 +58,10 @@ class UdaSearchBox extends Component {
       // style:false,
     })
     this.props.onChange(lat, lng)
+  }
+
+  onChangeCadastre (e) {
+    console.log('cadastre');
   }
 
   onSubmitHandler() {
@@ -111,6 +116,7 @@ class UdaSearchBox extends Component {
             onClickHandlerCadastre={this.onClickHandlerCadastre}
           />
         </div>
+
         <SearchButton
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
