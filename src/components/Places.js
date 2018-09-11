@@ -47,7 +47,7 @@ class Places extends Component {
                 >
                     {placeholder}
                 </label>
-                <input   className= "ap-input-icon ap-icon-pin" style={inputBox} id='urbanTourPlaces'
+                <input style={inputBox} id='urbanTourPlaces'
                     placeholder={placeholder}
                     ref={(input) => { this.autoCompletePlace = input; }} />
             </form>
