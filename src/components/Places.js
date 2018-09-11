@@ -37,7 +37,7 @@ class Places extends Component {
             config
         } = this.props
         console.log(this.props)
-        return (
+        return (          
             <form status={statusPlaces}>
                 <label
                     htmlFor="input-search"

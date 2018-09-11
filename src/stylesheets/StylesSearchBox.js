@@ -1,10 +1,8 @@
 const SearchBox = {
-    //  style: 'false',
-     display: 'flex',
-     flexDirection: 'row',
-     minWidth: '350px',
-     maxWidth: '800px',
-    
+    display: 'flex',
+    flexDirection: 'row',
+    minWidth: '350px',
+    maxWidth: '800px',
 }
 
 const algoliaStyles = {
@@ -15,6 +13,7 @@ const imputIconsBox = {
     flexGrow: '1',
     position: 'relative',
 }
+
 const buttonSearch = {
     flexGrow: '0',
      width: '70px',
@@ -26,26 +25,28 @@ const buttonSearch = {
      textTransform: 'uppercase',
      left: '-66px',
 }
+
 const IconsBox = {
     position: 'absolute',
     right: '0%',
     top: '7px',
     cursor: 'pointer',
 }
+
 const placeIconBox = {
     display: 'inline-block',
     verticalAlign: 'middle',
-    paddingRight:'15px',
-    height:'18px',
-    width:'18px',
+    paddingRight: '15px',
+    height: '18px',
+    width: '18px',
 }
 
 const mapIconBox = {
     display: 'inline-block',
     verticalAlign: 'middle',
-    marginRight:'20px',
-    height:'18px',
-    width:'18px',
+    marginRight: '20px',
+    height: '18px',
+    width: '18px',
 }
 
 const inputBox = {

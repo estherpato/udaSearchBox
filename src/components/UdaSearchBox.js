@@ -3,8 +3,7 @@ import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
-// import { getToken } from '../services/Auth.js';
-import request from 'axios';
+import { getToken } from '../services/auth.js';
 import '../stylesheets/style.css';
 import {SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
@@ -28,28 +27,11 @@ class UdaSearchBox extends Component {
   }
 
   componentDidMount() {
-    this.getToken('adalab', '4286')
-  }
-
-  getToken(user, pwd) {
-    const reports = {
-      url: 'https://reds.urbandataanalytics.com/management/api/v1.0/login',
-      data: { 'username': user, 'password': pwd },
-      headers: { 'Content-Type': 'application/json' }
-    };
-
-    return new Promise((resolve, reject) => {
-      request.post(reports.url, reports.data, { headers: reports.headers })
-        .then(res => {
-          const authToken = res.data.authToken;
-          console.log(authToken)
-          this.setState({ token: authToken }, () => console.log('token', this.state.token));
-        })
-        .catch(e => {
-          //resolve(e.response.data.error)
-          resolve(e.response)
-        })
-    })
+    getToken('adalab', '4286')
+      .then((res) => {
+        const authToken = res.data.authToken;
+        this.setState({ token: authToken }, () => console.log('token', this.state.token));
+      })
   }
 
   onChangeHandler(lat, lng) {
@@ -61,7 +43,7 @@ class UdaSearchBox extends Component {
     this.props.onChange(lat, lng)
   }
 
-  onChangeCadastre (e) {
+  onChangeCadastre(e) {
     console.log('cadastre');
   }
 
@@ -99,12 +81,12 @@ class UdaSearchBox extends Component {
     return (
       <div style={SearchBox}>
         <div style={imputIconsBox}>
-          {this.state.placesActive && <Places
+          {((this.state.placesActive && placesOn) || (!cadastreOn)) && <Places
             placeholder={placeholderPlaces}
             config={configPlaces}
             onChangeHandler={this.onChangeHandler}
           />}
-          {this.state.cadastreActive && <Cadastre
+          {((this.state.cadastreActive && cadastreOn) || (!placesOn && cadastreOn)) && <Cadastre
             placeholder={placeholderCadastre}
             config={configCadastre}
           />}
@@ -117,8 +99,8 @@ class UdaSearchBox extends Component {
             onClickHandlerCadastre={this.onClickHandlerCadastre}
           />
         </div>
-
         <SearchButton
+          config={configCadastre}
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
           lng={this.state.lng}

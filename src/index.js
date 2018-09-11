@@ -7,7 +7,7 @@ import UdaSearchBox from './components/UdaSearchBox.js';
 const configUdaSearchBox = {
   placeholderPlaces: '',
   placeholderCadastre: '',
-  placesOn: false, //botón clickado
+  placesOn: true, //botón clickado
   cadastreOn: true, //botón clickado
   onSubmit: null,
 
