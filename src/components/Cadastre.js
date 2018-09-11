@@ -5,50 +5,6 @@ import { inputBox, searchBox, imputIconsBox } from '../stylesheets/StylesSearchB
 
 
 class Cadastre extends Component {
-
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.state = {
-      latlng: {
-        lat: null,
-        lng: null
-      }
-    }
-  }
-
-
-  componentDidMount() {
-    const {token,url} = this.props;
-    const textToken = 'Token ';
-    const concatToken = textToken.concat(token);
-    console.log(url)
-
-    axios({
-      url: url,
-      method: 'get',
-      // auth: {
-      //         username: 'adalab',
-      //         password: '4286'
-      //     },
-      headers: {
-        'Authorization': concatToken
-      }
-    }).then(res => {
-      const feature = res.data;
-      const lat = feature.lat;
-      const lng = feature.lon;
-      console.log(lat);
-      this.setState({
-        latlng: {
-          lat: lat,
-          lng: lng
-        }
-      });
-    })
-    console.log(this.state.latlng)
-  }
-
   render() {
     const {
         placeholder,
@@ -62,7 +18,6 @@ class Cadastre extends Component {
       <form status={statusCadastre}>
       <label htmlFor="input-search"
       //  style={{display: 'none'}}
-
       >
         {placeholder}
       </label>

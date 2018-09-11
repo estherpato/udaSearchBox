@@ -82,7 +82,6 @@ class UdaSearchBox extends Component {
 
 
   coordinatesCadastre () {
-
     const {token,url} = this.state;
     const textToken = 'Token ';
     const concatToken = textToken.concat(token);
@@ -112,6 +111,7 @@ class UdaSearchBox extends Component {
     })
 
   }
+  
   onSubmitHandler(e) {
     if (this.state.placesActive) {
       const lat = this.state.lat;
