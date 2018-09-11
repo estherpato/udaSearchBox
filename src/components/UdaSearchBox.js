@@ -4,6 +4,7 @@ import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
+import { coordinatesCadastre } from '../services/callCadastre.js';
 import axios from 'axios';
 import '../stylesheets/style.css';
 import {SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
@@ -24,7 +25,6 @@ class UdaSearchBox extends Component {
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onChangeCadastre = this.onChangeCadastre.bind(this);
-    this.coordinatesCadastre = this.coordinatesCadastre.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.onClickHandlerPlaces = this.onClickHandlerPlaces.bind(this);
     this.onClickHandlerCadastre = this.onClickHandlerCadastre.bind(this);
@@ -59,44 +59,13 @@ class UdaSearchBox extends Component {
   }
 
 
-  coordinatesCadastre () {
-    const {token,url} = this.state;
-    const textToken = 'Token ';
-    const concatToken = textToken.concat(token);
-    console.log(concatToken)
-
-    axios({
-      url: url,
-      method: 'get',
-      // auth: {
-      //         username: 'adalab',
-      //         password: '4286'
-      //     },
-      headers: {
-        'Authorization': concatToken
-      }
-    }).then(res => {
-      const feature = res.data;
-      const lat = feature.lat;
-      const lng = feature.lon;
-      console.log(lat,lng);
-      this.setState({
-        latlng: {
-          lat: lat,
-          lng: lng
-        }
-      });
-    })
-
-  }
-
   onSubmitHandler(e) {
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
       console.log('lat,lng', lat, lng)
     } else if (this.state.cadastreActive) {
-      this.coordinatesCadastre();
+      coordinatesCadastre();
     }
   }
 
