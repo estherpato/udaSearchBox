@@ -8,7 +8,7 @@ const configUdaSearchBox = {
   placeholderPlaces: '',
   placeholderCadastre: '',
   placesOn: true, //botón clickado
-  cadastreOn: false, //botón clickado
+  cadastreOn: true, //botón clickado
   onSubmit: null,
   style: false,
 
