@@ -5,7 +5,8 @@ import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
 // import { getToken } from '../services/Auth.js';
 import request from 'axios';
-import { searchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
+import '../stylesheets/style.css';
+import { pNostyleSearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -96,7 +97,7 @@ class UdaSearchBox extends Component {
     } = this.props.config;
 
     return (
-      <div style={searchBox}>
+      <div style={pNostyleSearchBox}>
         <div style={imputIconsBox}>
           {this.state.placesActive && <Places
             placeholder={placeholderPlaces}

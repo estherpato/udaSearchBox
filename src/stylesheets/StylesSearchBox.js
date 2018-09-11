@@ -1,4 +1,4 @@
-const searchBox = {
+const pNostyleSearchBox = {
     //  style: 'false',
      display: 'flex',
      flexDirection: 'row',
@@ -67,4 +67,4 @@ const inputBox = {
 
 
 
-export { algoliaStyles,searchBox, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox };
+export { pNostyleSearchBox,algoliaStyles, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox };
