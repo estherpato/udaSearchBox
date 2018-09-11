@@ -62,17 +62,19 @@ class UdaSearchBox extends Component {
       configPlaces,
       configCadastre,
     } = this.props.config;
+
     return (
       <div style={searchBox}>
-        <Places
+        {this.state.placesActive && <Places
           placeholder={placeholderPlaces}
           config={configPlaces}
           onChangeHandler={this.onChangeHandler}
-        />
-        <Cadastre
+        />}
+        {this.state.cadastreActive && <Cadastre
           placeholder={placeholderCadastre}
           config={configCadastre}
-        />
+        />}
+
         <IconInput
           statusPlaces={placesOn}
           statusCadastre={cadastreOn}

@@ -3,9 +3,15 @@ import React, { Component } from 'react';
 class Cadastre extends Component {
 
     render() {
+        const {
+            placeholder,
+            statusCadastre,
+            config,
+            OnChangeCadastre,
+        } = this.props
         return (
             <div>
-                {/* <label
+                <label
                     htmlFor="input-search"
                     style={{ display: 'none' }}
                 >
@@ -13,7 +19,7 @@ class Cadastre extends Component {
                 </label>
                 <input id='urbanTourPlaces'
                     placeholder={placeholder}
-                    ref={(input) => { this.autoCompletePlace = input; }} /> */}
+                    ref={(input) => { this.autoCompletePlace = input; }} />
             </div>
         );
     }
