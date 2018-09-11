@@ -17,13 +17,13 @@ class Cadastre extends Component {
     axios({
     url: url,
     method: 'get',
-    auth: {
-            username: 'adalab',
-            password: '4286'
-        }
-    // headers: {
-    //     'Authorization': 'ba800d5f-ccb0-4e6e-91ed-7072ceeec58f'
-    // }
+    // auth: {
+    //         username: 'adalab',
+    //         password: '4286'
+    //     },
+    headers: {
+        'Authorization': 'Token ba800d5f-ccb0-4e6e-91ed-7072ceeec58f'
+    }
  })
       .then(res => {
         const feature = res.data;
