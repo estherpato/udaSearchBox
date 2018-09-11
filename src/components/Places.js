@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
-import {inputBox,algoliaStyles} from '../stylesheets/StylesSearchBox';
+import {inputBox,algoliaStyles,searchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
 class Places extends Component {
 
@@ -37,6 +37,8 @@ class Places extends Component {
         } = this.props
         console.log(this.props)
         return (
+        <div style={searchBox}>
+        <div style={imputIconsBox}>            
             <form status={statusPlaces}>
                 <label
                     htmlFor="input-search"
@@ -50,6 +52,8 @@ class Places extends Component {
                     placeholder={placeholder}
                     ref={(input) => { this.autoCompletePlace = input; }} />
             </form>
+        </div>
+        </div>
         );
     }
 }
