@@ -122,7 +122,7 @@ class UdaSearchBox extends Component {
           lat={this.state.lat}
           lng={this.state.lng}
         />
-      </div >
+      </div>
     );
   }
 }
