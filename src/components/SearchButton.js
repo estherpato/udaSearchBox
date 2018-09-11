@@ -4,7 +4,6 @@ import { buttonSearch } from '../stylesheets/StylesSearchBox';
 class SearchButton extends Component {
     render() {
         return (
-            <div>
                 <button
                     style={buttonSearch}
                     type="submit"
@@ -12,7 +11,6 @@ class SearchButton extends Component {
                 >
                     Search
                 </button>
-            </div>
         );
     }
 }

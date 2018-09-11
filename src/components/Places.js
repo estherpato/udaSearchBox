@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
-import {inputBox} from '../stylesheets/StylesSearchBox';
+import {inputBox,algoliaStyles} from '../stylesheets/StylesSearchBox';
 
 class Places extends Component {
 
@@ -20,7 +20,11 @@ class Places extends Component {
         }
 
         const autocomplete = place(options);
-        autocomplete.on('change', this.props.onChangeHandler);
+        autocomplete.on('change', (e) => {
+            const lat = e.suggestion.latlng.lat;
+            const lng = e.suggestion.latlng.lng;
+            this.props.onChangeHandler(lat, lng)
+        });
         autocomplete.on('suggestions', this.props.onSuggestions);
         autocomplete.on('clear', this.props.onClear);
     }
@@ -36,7 +40,9 @@ class Places extends Component {
             <form status={statusPlaces}>
                 <label
                     htmlFor="input-search"
-                    style={{ display: 'none' }}
+                    // style={{ display: 'false' }}
+                    // style={{ algoliaStyles }}
+                    
                 >
                     {placeholder}
                 </label>
