@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {inputBox} from '../stylesheets/StylesSearchBox';
 
-const url = 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/8925602VK3782F0012JB';
+
 
 class Cadastre extends Component {
+
   constructor(props) {
     super(props);
     console.log(props);
     this.state = {
-      refCadastre: null,
       latlng: {
         lat: null,
         lng: null
@@ -17,33 +17,38 @@ class Cadastre extends Component {
     }
   }
 
+
+
   componentDidMount() {
 
+    const {token,url} = this.props;
+    const textToken = 'Token ';
+    const concatToken = textToken.concat(token);
+    console.log(url)
 
     axios({
-      url: url, method: 'get',
+      url: url,
+      method: 'get',
       // auth: {
       //         username: 'adalab',
       //         password: '4286'
       //     },
       headers: {
-        'Authorization': 'Token ba800d5f-ccb0-4e6e-91ed-7072ceeec58f'
+        'Authorization': concatToken
       }
     }).then(res => {
       const feature = res.data;
       const lat = feature.lat;
       const lng = feature.lon;
-      console.log(feature);
       console.log(lat);
-      console.log(lng);
       this.setState({
         latlng: {
           lat: lat,
           lng: lng
         }
       });
-      console.log(this.state.latlng);
     })
+    console.log(this.state.latlng)
   }
 
   render() {
@@ -51,7 +56,7 @@ class Cadastre extends Component {
         placeholder,
         statusCadastre,
         config,
-        onChangeCadastre
+        onChangeCadastre,
     } = this.props
     return (
       <form status={statusCadastre}>

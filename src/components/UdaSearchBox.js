@@ -16,7 +16,9 @@ class UdaSearchBox extends Component {
       cadastreActive: false,
       lat: null,
       lng: null,
-      token: '',
+      token: null,
+      refCadastre: '',
+      url: 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/',
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -61,7 +63,18 @@ class UdaSearchBox extends Component {
   }
 
   onChangeCadastre (e) {
-    console.log('cadastre');
+    this.setState(
+      {
+          refCadastre: e.target.value,
+        }, () => {
+          this.setState (
+            {
+              url: 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/'+this.state.refCadastre,
+            }
+          )
+        }
+    );
+    console.log(this.state.url)
   }
 
   onSubmitHandler() {
@@ -106,6 +119,9 @@ class UdaSearchBox extends Component {
           {this.state.cadastreActive && <Cadastre
             placeholder={placeholderCadastre}
             config={configCadastre}
+            onChangeCadastre={this.onChangeCadastre}
+            url={this.state.url}
+            token={this.state.token}
           />}
           <IconInput
             statusPlaces={placesOn}
@@ -116,13 +132,12 @@ class UdaSearchBox extends Component {
             onClickHandlerCadastre={this.onClickHandlerCadastre}
           />
         </div>
-
         <SearchButton
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
           lng={this.state.lng}
         />
-      </div >
+      </div>
     );
   }
 }
