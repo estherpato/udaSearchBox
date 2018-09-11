@@ -101,7 +101,7 @@ class UdaSearchBox extends Component {
           placeholder={placeholderPlaces}
           config={configPlaces}
           onChangeHandler={this.onChangeHandler}
-        /> */}
+        /> 
         <Cadastre
           placeholder={placeholderCadastre}
           config={configCadastre}
