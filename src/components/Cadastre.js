@@ -46,7 +46,6 @@ class Cadastre extends Component {
         })
     }
 
-<<<<<<< HEAD
     render() {
         const {
             placeholder,
@@ -55,42 +54,23 @@ class Cadastre extends Component {
             onChangeCadastre
         } = this.props
         return (
-            <form status={statusCadastre}>
-                <label config={config} htmlFor="input-search" style={{
-                    display: 'none'
-                }}>
-                    {placeholder}
-                </label>
-                <input style={inputBox} type='text' onChange={onChangeCadastre} />
-            </form>);
+            <div style={searchBox}>
+                <div style={imputIconsBox}>
+                    <form status={statusCadastre}>
+                        <label htmlFor="input-search"
+                        //  style={{display: 'none'}}
+
+                        >
+                            {placeholder}
+                        </label>
+                        <input style={inputBox} type='text' onChange={onChangeCadastre} />
+                    </form>
+                </div>
+            </div>
+
+        );
+
     }
-=======
-  render() {
-    const {
-        placeholder,
-        statusCadastre,
-        config,
-        onChangeCadastre
-    } = this.props
-    return (
-    <div style={searchBox}>
-    <div style={imputIconsBox}>
-      <form status={statusCadastre}>
-      <label htmlFor="input-search"
-      //  style={{display: 'none'}}
-
-      >
-        {placeholder}
-      </label>
-      <input style={inputBox} type='text' onChange={onChangeCadastre}/>
-    </form>
-  </div>
-  </div>
-
-    );
-
-  }
->>>>>>> develop
 }
 
 export default Cadastre;
