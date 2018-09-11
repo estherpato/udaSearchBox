@@ -14,7 +14,6 @@ class UdaSearchBox extends Component {
       cadastreActive: false,
       lat: null,
       lng: null,
-      // style: false,
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);

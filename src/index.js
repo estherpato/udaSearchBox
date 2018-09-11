@@ -8,8 +8,9 @@ const configUdaSearchBox = {
   placeholderPlaces: '',
   placeholderCadastre: '',
   placesOn: true, //botón clickado
-  cadastreOn: true, //botón clickado
+  cadastreOn: false, //botón clickado
   onSubmit: null,
+  style: false,
 
   configPlaces: {
     apiKey: '36284ef6c57222d4fea2accf5880409',

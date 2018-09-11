@@ -47,8 +47,9 @@ class IconInput extends Component {
             );
         } else if (statusPlaces) {
             return (
-                <div>
+                <div style={IconsBox}>
                     <img
+                        style={mapIconBox}
                         src={PlaceSelectIcon}
                         alt="Place icon"
                     />
@@ -56,8 +57,9 @@ class IconInput extends Component {
             );
         } else if (statusCadastre) {
             return (
-                <div>
+                <div style={IconsBox}>
                     <img
+                        style={mapIconBox}
                         src={MapSelectIcon}
                         alt="Place icon"
                     />

@@ -1,5 +1,5 @@
 const searchBox = {
-    // style: 'false',
+    //  style: 'false',
      display: 'flex',
      flexDirection: 'row',
      minWidth: '350px',
@@ -9,7 +9,6 @@ const searchBox = {
 
 const algoliaStyles = {
     style: 'false',
-    display: 'none',
 }
 
 const imputIconsBox = {
