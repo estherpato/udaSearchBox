@@ -15,6 +15,7 @@ class Cadastre extends Component {
         lng: null
       }
     }
+  }
 
 
   componentDidMount() {
