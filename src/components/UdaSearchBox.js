@@ -19,6 +19,7 @@ class UdaSearchBox extends Component {
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onChangeCadastre = this.onChangeCadastre.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.onClickHandlerPlaces = this.onClickHandlerPlaces.bind(this);
     this.onClickHandlerCadastre = this.onClickHandlerCadastre.bind(this);
@@ -28,7 +29,6 @@ class UdaSearchBox extends Component {
     getToken('adalab', '4286')
       .then((res) => {
         const authToken = res.data.authToken;
-        console.log(authToken)
         this.setState({ token: authToken }, () => console.log('token', this.state.token));
       })
   }
@@ -40,6 +40,10 @@ class UdaSearchBox extends Component {
       // style:false,
     })
     this.props.onChange(lat, lng)
+  }
+
+  onChangeCadastre(e) {
+    console.log('cadastre');
   }
 
   onSubmitHandler() {
@@ -72,18 +76,19 @@ class UdaSearchBox extends Component {
       configPlaces,
       configCadastre,
     } = this.props.config;
+
     return (
       <div style={searchBox}>
         <div style={imputIconsBox}>
-          <Places
+          {((this.state.placesActive && placesOn) || (!cadastreOn)) && <Places
             placeholder={placeholderPlaces}
             config={configPlaces}
             onChangeHandler={this.onChangeHandler}
-          />
-          <Cadastre
+          />}
+          {((this.state.cadastreActive && cadastreOn) || (!placesOn && cadastreOn)) && <Cadastre
             placeholder={placeholderCadastre}
             config={configCadastre}
-          />
+          />}
           <IconInput
             statusPlaces={placesOn}
             statusCadastre={cadastreOn}
@@ -94,6 +99,7 @@ class UdaSearchBox extends Component {
           />
         </div>
         <SearchButton
+          config={configCadastre}
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
           lng={this.state.lng}

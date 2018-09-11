@@ -1,21 +1,20 @@
 const searchBox = {
-    // style: 'false',
+    //  style: 'false',
     display: 'flex',
     flexDirection: 'row',
     minWidth: '350px',
     maxWidth: '800px',
-
 }
 
 const algoliaStyles = {
     style: 'false',
-    display: 'none',
 }
 
 const imputIconsBox = {
     flexGrow: '1',
     position: 'relative',
 }
+
 const buttonSearch = {
     flexGrow: '0',
     width: '70px',
@@ -26,14 +25,15 @@ const buttonSearch = {
     color: 'white',
     textTransform: 'uppercase',
     left: '-66px'
-
 }
+
 const IconsBox = {
     position: 'absolute',
     right: '0%',
     top: '7px',
     cursor: 'pointer',
 }
+
 const placeIconBox = {
     display: 'inline-block',
     verticalAlign: 'middle',
