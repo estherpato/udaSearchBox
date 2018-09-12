@@ -4,6 +4,7 @@ import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
+import PropTypes from 'prop-types';
 import '../stylesheets/style.css';
 import {SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
@@ -110,4 +111,14 @@ class UdaSearchBox extends Component {
   }
 }
 
+    UdaSearchBox.PropTypes= {
+      placesActive: PropTypes.bool,
+      cadastreActive: PropTypes.bool,
+      lat: PropTypes.number,
+      lng: PropTypes.number,
+      token: PropTypes.string
+    };
+
+
 export default UdaSearchBox;
+
