@@ -40,7 +40,6 @@ class UdaSearchBox extends Component {
       lng: lng,
       // style:false,
     })
-    this.props.onChange(lat, lng)
   }
 
   onChangeCadastre(e) {
