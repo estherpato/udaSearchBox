@@ -41,7 +41,6 @@ class UdaSearchBox extends Component {
     this.setState({
       lat: lat,
       lng: lng,
-      // style:false,
     })
     this.props.onChange(lat, lng)
   }
