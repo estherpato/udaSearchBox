@@ -16,11 +16,8 @@
                                 >
                                 ✖
                                 </button>
-                                <ModalContent
-                                    placesStatus={placesStatus}
-                                    cadastreStatus={cadastreStatus}
-
-                                />
+                               
+                                <span> Mensaje </span>
                             </div>
                     </section>
                     );
