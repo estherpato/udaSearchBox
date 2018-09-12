@@ -58,14 +58,13 @@ class UdaSearchBox extends Component {
     console.log(this.state.refCadastre)
   }
 
-
   onSubmitHandler(e) {
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
       console.log('lat,lng', lat, lng)
     } else if (this.state.cadastreActive) {
-      coordinatesCadastre();
+      coordinatesCadastre(this.state.token, this.state.url);
     }
   }
 

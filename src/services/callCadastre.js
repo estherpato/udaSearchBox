@@ -1,32 +1,26 @@
-import axios from 'axios';
+import request from 'axios';
 
-export function coordinatesCadastre () {
-  const {token,url} = this.state;
+export function coordinatesCadastre (token,url) {
   const textToken = 'Token ';
   const concatToken = textToken.concat(token);
   console.log(concatToken)
 
-  axios({
+  const parameters = {
     url: url,
-    method: 'get',
-    // auth: {
-    //         username: 'adalab',
-    //         password: '4286'
-    //     },
     headers: {
+      'Content-Type': 'application/json',
       'Authorization': concatToken
     }
-  }).then(res => {
-    const feature = res.data;
-    const lat = feature.lat;
-    const lng = feature.lon;
-    console.log(lat,lng);
-    this.setState({
-      latlng: {
-        lat: lat,
-        lng: lng
-      }
-    });
-  })
-
+  }
+    return new Promise((resolve, reject) => {
+        request.get(parameters.url, { headers: parameters.headers })
+            .then(res => {
+                resolve(res)
+                console.log(res)
+            })
+            .catch(e => {
+                //resolve(e.response.data.error)
+                resolve(e.response)
+            })
+    })
 }
