@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
-import {inputBox,algoliaStyles,searchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
+import '../stylesheets/style.css';
+import {inputBox,algoliaStyles} from '../stylesheets/StylesSearchBox';
 
 class Places extends Component {
 
@@ -36,15 +37,12 @@ class Places extends Component {
             config
         } = this.props
         console.log(this.props)
-        return (
-        <div style={searchBox}>
-        <div style={imputIconsBox}>            
+        return (          
             <form status={statusPlaces}>
                 <label
                     htmlFor="input-search"
                     // style={{ display: 'false' }}
-                    // style={{ algoliaStyles }}
-                    
+                    // style={{ algoliaStyles }}    
                 >
                     {placeholder}
                 </label>
@@ -52,8 +50,6 @@ class Places extends Component {
                     placeholder={placeholder}
                     ref={(input) => { this.autoCompletePlace = input; }} />
             </form>
-        </div>
-        </div>
         );
     }
 }

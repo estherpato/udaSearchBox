@@ -10,7 +10,6 @@ const configUdaSearchBox = {
   placesOn: true, //botón clickado
   cadastreOn: true, //botón clickado
   onSubmit: null,
-  style: false,
 
   configPlaces: {
     apiKey: '36284ef6c57222d4fea2accf5880409',
@@ -26,7 +25,6 @@ const configUdaSearchBox = {
     templates: null,
     type: ['city', 'country', 'address', 'busStop', 'trainStation', 'townhall', 'airport'],
     useDeviceLocation: "false",
-    style: false,
   },
 
   configCadastre: {

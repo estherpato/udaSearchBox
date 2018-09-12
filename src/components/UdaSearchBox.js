@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
+import Modal from './Modal.js';
 import SearchButton from './SearchButton';
-// import { getToken } from '../services/Auth.js';
-import request from 'axios';
-import { searchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
+import { getToken } from '../services/auth.js';
+import PropTypes from 'prop-types';
+import '../stylesheets/style.css';
+import { SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -14,9 +16,11 @@ class UdaSearchBox extends Component {
     this.state = {
       placesActive: true,
       cadastreActive: false,
+      modalIsOpen: true,
       lat: null,
       lng: null,
       token: '',
+      error: '',
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -24,40 +28,29 @@ class UdaSearchBox extends Component {
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.onClickHandlerPlaces = this.onClickHandlerPlaces.bind(this);
     this.onClickHandlerCadastre = this.onClickHandlerCadastre.bind(this);
+    this.onCloseModal = this.onCloseModal.bind(this);
   }
 
   componentDidMount() {
-    this.getToken('adalab', '4286')
-  }
+    getToken('adalab', '4286')
+      .then((res) => {
+        const authToken = res.data.authToken;
+        this.setState({ token: authToken }, () => console.log('token', this.state.token));
+      })
+      .catch((error) => {
+        console.error("holi", error);
+        this.setState({ error: 'hay un error' })
+      });
 
-  getToken(user, pwd) {
-    const reports = {
-      url: 'https://reds.urbandataanalytics.com/management/api/v1.0/login',
-      data: { 'username': user, 'password': pwd },
-      headers: { 'Content-Type': 'application/json' }
-    };
 
-    return new Promise((resolve, reject) => {
-      request.post(reports.url, reports.data, { headers: reports.headers })
-        .then(res => {
-          const authToken = res.data.authToken;
-          console.log(authToken)
-          this.setState({ token: authToken }, () => console.log('token', this.state.token));
-        })
-        .catch(e => {
-          //resolve(e.response.data.error)
-          resolve(e.response)
-        })
-    })
+    // .catch((error) => {this.setState({error: 'mensaje'})});
   }
 
   onChangeHandler(lat, lng) {
     this.setState({
       lat: lat,
       lng: lng,
-      // style:false,
     })
-    this.props.onChange(lat, lng)
   }
 
   onChangeCadastre(e) {
@@ -84,6 +77,10 @@ class UdaSearchBox extends Component {
     })
   }
 
+  onCloseModal() {
+    this.setState({ modalIsOpen: false })
+  }
+
   render() {
     const {
       placeholderPlaces,
@@ -94,16 +91,16 @@ class UdaSearchBox extends Component {
       configPlaces,
       configCadastre,
     } = this.props;
-
+    const { error } = this.state;
     return (
-      <div style={searchBox}>
+      <div style={SearchBox}>
         <div style={imputIconsBox}>
-          {this.state.placesActive && <Places
+          {((this.state.placesActive && placesOn) || (!cadastreOn)) && <Places
             placeholder={placeholderPlaces}
             config={configPlaces}
             onChangeHandler={this.onChangeHandler}
           />}
-          {this.state.cadastreActive && <Cadastre
+          {((this.state.cadastreActive && cadastreOn) || (!placesOn && cadastreOn)) && <Cadastre
             placeholder={placeholderCadastre}
             config={configCadastre}
           />}
@@ -116,15 +113,31 @@ class UdaSearchBox extends Component {
             onClickHandlerCadastre={this.onClickHandlerCadastre}
           />
         </div>
-
         <SearchButton
+          config={configCadastre}
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
           lng={this.state.lng}
         />
+        {((error.length > 1) &&
+          <Modal
+            placesStatus={this.state.placesActive}
+            cadastreStatus={this.state.cadastreActive}
+            modalStatus={this.state.modalIsOpen}
+            onCloseModal={this.onCloseModal}
+          />)}
       </div>
     );
   }
 }
+
+UdaSearchBox.propTypes = {
+  placesActive: PropTypes.bool,
+  cadastreActive: PropTypes.bool,
+  lat: PropTypes.number,
+  lng: PropTypes.number,
+  token: PropTypes.string
+};
+
 
 export default UdaSearchBox;
