@@ -112,7 +112,7 @@ class UdaSearchBox extends Component {
           lat={this.state.lat}
           lng={this.state.lng}
         />
-        <Modal 
+        <Modal
           placesStatus={this.state.placesActive}
           cadastreStatus={this.state.cadastreActive}
           modalStatus={this.state.modalIsOpen}
@@ -123,7 +123,7 @@ class UdaSearchBox extends Component {
   }
 }
 
-    UdaSearchBox.PropTypes= {
+    UdaSearchBox.propTypes= {
       placesActive: PropTypes.bool,
       cadastreActive: PropTypes.bool,
       lat: PropTypes.number,
@@ -133,4 +133,3 @@ class UdaSearchBox extends Component {
 
 
 export default UdaSearchBox;
-
