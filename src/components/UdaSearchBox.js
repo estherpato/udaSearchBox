@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
+import Modal from './Modal.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
 import PropTypes from 'prop-types';
@@ -15,6 +16,7 @@ class UdaSearchBox extends Component {
     this.state = {
       placesActive: true,
       cadastreActive: false,
+      modalIsOpen: true,
       lat: null,
       lng: null,
       token: '',
@@ -25,6 +27,7 @@ class UdaSearchBox extends Component {
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.onClickHandlerPlaces = this.onClickHandlerPlaces.bind(this);
     this.onClickHandlerCadastre = this.onClickHandlerCadastre.bind(this);
+    this.onCloseModal = this.onCloseModal.bind(this);
   }
 
   componentDidMount() {
@@ -68,6 +71,10 @@ class UdaSearchBox extends Component {
     })
   }
 
+  onCloseModal() {
+    this.setState({ modalIsOpen: false })
+  }
+
   render() {
     const {
       placeholderPlaces,
@@ -105,6 +112,12 @@ class UdaSearchBox extends Component {
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
           lng={this.state.lng}
+        />
+        <Modal 
+          placesStatus={this.state.placesActive}
+          cadastreStatus={this.state.cadastreActive}
+          modalStatus={this.state.modalIsOpen}
+          onCloseModal={this.onCloseModal}
         />
       </div>
     );
