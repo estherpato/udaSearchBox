@@ -42,8 +42,7 @@ class Places extends Component {
                 <label
                     htmlFor="input-search"
                     // style={{ display: 'false' }}
-                    // style={{ algoliaStyles }}
-                    
+                    // style={{ algoliaStyles }}    
                 >
                     {placeholder}
                 </label>
