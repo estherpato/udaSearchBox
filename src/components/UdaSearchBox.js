@@ -60,7 +60,7 @@ class UdaSearchBox extends Component {
     this.props.onChange(lat, lng)
   }
 
-  onChangeCadastre (e) {
+  onChangeCadastre(e) {
     console.log('cadastre');
   }
 
@@ -93,7 +93,7 @@ class UdaSearchBox extends Component {
       onSubmit,
       configPlaces,
       configCadastre,
-    } = this.props.config;
+    } = this.props;
 
     return (
       <div style={searchBox}>
