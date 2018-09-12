@@ -3,19 +3,21 @@ import PropTypes from 'prop-types';
 
 class ModalContent extends Component {
     render() {
-        const { placesStatus, cadastreStatus, modalStatus
+        const { placesStatus, cadastreStatus
         } = this.props
 
 if (placesStatus) {
     return (
         <div>
-            Address "{}" was not found. Instead using default address
+            Address "{}" was not found. Instead using default address.
         </div>
     );
 } else if (cadastreStatus) {
-    <div>
-        Not a valid cadastral reference
-    </div>
+    return (    <div>
+        Not a valid cadastral reference.
+    </div>)
+} else {
+    return null
 }
       }
 }

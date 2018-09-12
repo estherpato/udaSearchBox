@@ -20,6 +20,7 @@ class UdaSearchBox extends Component {
       lat: null,
       lng: null,
       token: '',
+      error: '',
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -36,13 +37,19 @@ class UdaSearchBox extends Component {
         const authToken = res.data.authToken;
         this.setState({ token: authToken }, () => console.log('token', this.state.token));
       })
+      .catch((error) => {
+        console.error("holi" , error);
+        this.setState({error: 'hay un error'})
+      });
+      
+        
+      // .catch((error) => {this.setState({error: 'mensaje'})});
   }
 
   onChangeHandler(lat, lng) {
     this.setState({
       lat: lat,
       lng: lng,
-      // style:false,
     })
   }
 
@@ -84,6 +91,7 @@ class UdaSearchBox extends Component {
       configPlaces,
       configCadastre,
     } = this.props.config;
+    const { error } = this.state;
 
     return (
       <div style={SearchBox}>
@@ -112,12 +120,13 @@ class UdaSearchBox extends Component {
           lat={this.state.lat}
           lng={this.state.lng}
         />
-        <Modal
-          placesStatus={this.state.placesActive}
-          cadastreStatus={this.state.cadastreActive}
-          modalStatus={this.state.modalIsOpen}
-          onCloseModal={this.onCloseModal}
-        />
+        {((error.length > 1) &&         
+          <Modal 
+            placesStatus={this.state.placesActive}
+            cadastreStatus={this.state.cadastreActive}
+            modalStatus={this.state.modalIsOpen}
+            onCloseModal={this.onCloseModal}
+        />)}
       </div>
     );
   }
