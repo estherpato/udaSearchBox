@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
+import '../stylesheets/style.css';
+import {inputBox,algoliaStyles} from '../stylesheets/StylesSearchBox';
 
 class Places extends Component {
-
 
     componentDidMount() {
 
@@ -20,7 +21,11 @@ class Places extends Component {
         }
 
         const autocomplete = place(options);
-        autocomplete.on('change', this.props.onChange);
+        autocomplete.on('change', (e) => {
+            const lat = e.suggestion.latlng.lat;
+            const lng = e.suggestion.latlng.lng;
+            this.props.onChangeHandler(lat, lng)
+        });
         autocomplete.on('suggestions', this.props.onSuggestions);
         autocomplete.on('clear', this.props.onClear);
     }
@@ -28,22 +33,24 @@ class Places extends Component {
     render() {
         const {
             placeholder,
-            status,
+            statusPlaces,
             config
         } = this.props
         console.log(this.props)
-        return (
-            <div status={status}>
+        return (          
+            <form status={statusPlaces}>
                 <label
                     htmlFor="input-search"
-                    style={{ display: 'none' }}
+                    style={{display: 'none'}}
+                    // style={{ display: 'false' }}
+                    // style={{ algoliaStyles }}    
                 >
                     {placeholder}
                 </label>
-                <input id='urbanTourPlaces'
+                <input style={inputBox} id='urbanTourPlaces'
                     placeholder={placeholder}
                     ref={(input) => { this.autoCompletePlace = input; }} />
-            </div>
+            </form>
         );
     }
 }
@@ -57,7 +64,7 @@ Places.propTypes = {
     countries: PropTypes.arrayOf(PropTypes.string),
     disabled: PropTypes.bool,
     language: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
+    // onChange: PropTypes.func.isRequired,
     onSuggestions: PropTypes.func.isRequired,
     onClear: PropTypes.func.isRequired,
     templates: PropTypes.object,
