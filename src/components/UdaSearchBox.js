@@ -8,7 +8,7 @@ import { getToken } from '../services/auth.js';
 import { coordinatesCadastre } from '../services/callCadastre.js';
 import PropTypes from 'prop-types';
 import '../stylesheets/style.css';
-import {SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
+import { SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -40,12 +40,10 @@ class UdaSearchBox extends Component {
         this.setState({ token: authToken }, () => console.log('token', this.state.token));
       })
       .catch((error) => {
-        console.error("holi" , error);
-        this.setState({error: 'hay un error'})
+        console.error("holi", error);
+        this.setState({ error: 'hay un error' })
       });
-
-
-      // .catch((error) => {this.setState({error: 'mensaje'})});
+    // .catch((error) => {this.setState({error: 'mensaje'})});
   }
 
   onChangeHandler(lat, lng) {
@@ -101,10 +99,9 @@ class UdaSearchBox extends Component {
       cadastreOn,
       onSubmit,
       configPlaces,
-      configCadastre
-    } = this.props.config;
+      configCadastre,
+    } = this.props;
     const { error } = this.state;
-
     return (
       <div style={SearchBox}>
         <div style={imputIconsBox}>
@@ -139,19 +136,19 @@ class UdaSearchBox extends Component {
             cadastreStatus={this.state.cadastreActive}
             modalStatus={this.state.modalIsOpen}
             onCloseModal={this.onCloseModal}
-        />)}
+          />)}
       </div>
       );
   }
 }
 
-    UdaSearchBox.propTypes= {
-      placesActive: PropTypes.bool,
-      cadastreActive: PropTypes.bool,
-      lat: PropTypes.number,
-      lng: PropTypes.number,
-      token: PropTypes.string
-    };
+UdaSearchBox.propTypes = {
+  placesActive: PropTypes.bool,
+  cadastreActive: PropTypes.bool,
+  lat: PropTypes.number,
+  lng: PropTypes.number,
+  token: PropTypes.string
+};
 
 
 export default UdaSearchBox;

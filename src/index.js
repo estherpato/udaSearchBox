@@ -32,4 +32,13 @@ const configUdaSearchBox = {
   }
 }
 
-ReactDOM.render(<UdaSearchBox config={configUdaSearchBox} />, document.getElementById('root'));
+ReactDOM.render(<UdaSearchBox
+  placeholderPlaces={configUdaSearchBox.placeholderPlaces}
+  placeholderCadastre={configUdaSearchBox.placeholderCadastre}
+  placesOn={configUdaSearchBox.placesOn}
+  cadastreOn={configUdaSearchBox.cadastreOn}
+  onSubmit={configUdaSearchBox.onSubmit}
+  style={configUdaSearchBox.style}
+  configPlaces={configUdaSearchBox.configPlaces}
+  configCadastre={configUdaSearchBox.configCadastre}
+/>, document.getElementById('root'));
