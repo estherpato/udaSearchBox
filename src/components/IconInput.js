@@ -4,6 +4,8 @@ import MapSelectIcon from '../images/map_select.png';
 import PlaceIcon from '../images/place.png';
 import PlaceSelectIcon from '../images/place_select.png';
 import { IconsBox, mapIconBox, placeIconBox } from '../stylesheets/StylesSearchBox';
+import PropTypes from 'prop-types';
+
 
 class IconInput extends Component {
     render() {
@@ -69,5 +71,8 @@ class IconInput extends Component {
         }
     }
 }
+
+   
+
 
 export default IconInput;

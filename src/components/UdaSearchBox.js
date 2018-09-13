@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
+import Modal from './Modal.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
 import { coordinatesCadastre } from '../services/callCadastre.js';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 import '../stylesheets/style.css';
 import {SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
@@ -16,6 +17,7 @@ class UdaSearchBox extends Component {
     this.state = {
       placesActive: true,
       cadastreActive: false,
+      modalIsOpen: true,
       lat: null,
       lng: null,
       token: null,
@@ -27,6 +29,7 @@ class UdaSearchBox extends Component {
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.onClickHandlerPlaces = this.onClickHandlerPlaces.bind(this);
     this.onClickHandlerCadastre = this.onClickHandlerCadastre.bind(this);
+    this.onCloseModal = this.onCloseModal.bind(this);
   }
 
   componentDidMount() {
@@ -42,7 +45,6 @@ class UdaSearchBox extends Component {
       lat: lat,
       lng: lng,
     })
-    this.props.onChange(lat, lng)
   }
 
   onChangeCadastre(e) {
@@ -77,6 +79,10 @@ class UdaSearchBox extends Component {
 
   onClickHandlerCadastre() {
     this.setState({placesActive: false, cadastreActive: true})
+  }
+
+  onCloseModal() {
+    this.setState({ modalIsOpen: false })
   }
 
   render() {
@@ -118,9 +124,24 @@ class UdaSearchBox extends Component {
           lat={this.state.lat}
           lng={this.state.lng}
         />
+        <Modal
+          placesStatus={this.state.placesActive}
+          cadastreStatus={this.state.cadastreActive}
+          modalStatus={this.state.modalIsOpen}
+          onCloseModal={this.onCloseModal}
+        />
       </div>
       );
   }
 }
+
+    UdaSearchBox.propTypes= {
+      placesActive: PropTypes.bool,
+      cadastreActive: PropTypes.bool,
+      lat: PropTypes.number,
+      lng: PropTypes.number,
+      token: PropTypes.string
+    };
+
 
 export default UdaSearchBox;

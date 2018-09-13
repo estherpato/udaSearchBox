@@ -7,7 +7,6 @@ export function coordinatesCadastre (token,refCadastre) {
 
   const preUrl = 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/';
   const url = preUrl + refCadastre;
-  console.log(refCadastre)
 
   const parameters = {
     url: url,
