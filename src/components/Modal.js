@@ -5,8 +5,7 @@
             class Modal extends Component {
 
                 render() {
-                    const {
-                        onCloseModal
+                    const { placesStatus, cadastreStatus, modalStatus, onCloseModal
                     } = this.props;
 
                     return (
@@ -18,6 +17,7 @@
                                 ✖
                                 </button>
 
+                                <span> Mensaje </span>
                             </div>
                     </section>
                     );
