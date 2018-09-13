@@ -28,7 +28,7 @@ class Cadastre extends Component {
     }
 }
 
-Cadastre.PropTypes = {
+Cadastre.propTypes = {
     refCadastre: PropTypes.number,
     cadastreActive: PropTypes.bool,
     statusCadastre: PropTypes.bool,
