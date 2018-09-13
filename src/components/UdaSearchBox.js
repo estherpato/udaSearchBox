@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
 import Modal from './Modal.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
+import { coordinatesCadastre } from '../services/callCadastre.js';
 import PropTypes from 'prop-types';
 import '../stylesheets/style.css';
 import { SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
@@ -19,9 +20,10 @@ class UdaSearchBox extends Component {
       modalIsOpen: true,
       lat: null,
       lng: null,
-      token: '',
-      error: '',
-    }
+      token: null,
+      refCadastre: '',
+      error: ''
+       }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onChangeCadastre = this.onChangeCadastre.bind(this);
@@ -41,8 +43,6 @@ class UdaSearchBox extends Component {
         console.error("holi", error);
         this.setState({ error: 'hay un error' })
       });
-
-
     // .catch((error) => {this.setState({error: 'mensaje'})});
   }
 
@@ -54,27 +54,37 @@ class UdaSearchBox extends Component {
   }
 
   onChangeCadastre(e) {
-    console.log('cadastre');
+    this.setState({
+      refCadastre: e.target.value
+    })
   }
 
-  onSubmitHandler() {
-    const lat = this.state.lat;
-    const lng = this.state.lng;
-    console.log('lat,lng', lat, lng)
+  onSubmitHandler(e) {
+    if (this.state.placesActive) {
+      const lat = this.state.lat;
+      const lng = this.state.lng;
+      console.log('lat,lng', lat, lng)
+    } else if (this.state.cadastreActive) {
+      this.onChangeCadastre(e)
+      coordinatesCadastre(this.state.token, this.state.refCadastre)
+      .then((res) => {
+        const lat = res.data.lat;
+        const lng = res.data.lon;
+        this.setState({
+          lat: lat,
+          lng: lng
+         });
+         console.log(lat,lng)
+      })
+    }
   }
 
   onClickHandlerPlaces(e) {
-    this.setState({
-      placesActive: true,
-      cadastreActive: false,
-    })
+    this.setState({placesActive: true, cadastreActive: false})
   }
 
   onClickHandlerCadastre() {
-    this.setState({
-      placesActive: false,
-      cadastreActive: true,
-    })
+    this.setState({placesActive: false, cadastreActive: true})
   }
 
   onCloseModal() {
@@ -103,6 +113,7 @@ class UdaSearchBox extends Component {
           {((this.state.cadastreActive && cadastreOn) || (!placesOn && cadastreOn)) && <Cadastre
             placeholder={placeholderCadastre}
             config={configCadastre}
+            onChangeCadastre={this.onChangeCadastre}
           />}
           <IconInput
             statusPlaces={placesOn}
@@ -127,7 +138,7 @@ class UdaSearchBox extends Component {
             onCloseModal={this.onCloseModal}
           />)}
       </div>
-    );
+      );
   }
 }
 

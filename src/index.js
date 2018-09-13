@@ -28,7 +28,7 @@ const configUdaSearchBox = {
   },
 
   configCadastre: {
-    onChange: false
+    onChange: false,
   }
 }
 

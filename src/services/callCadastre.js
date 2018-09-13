@@ -1,27 +1,29 @@
-import axios from 'axios';
+import request from 'axios';
 
-export function coordinatesCadastre (token, url) {
-  const {token,url} = this.state;
+export function coordinatesCadastre (token,refCadastre) {
   const textToken = 'Token ';
   const concatToken = textToken.concat(token);
   console.log(concatToken)
 
-  axios({
+  const preUrl = 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/';
+  const url = preUrl + refCadastre;
+
+  const parameters = {
     url: url,
     headers: {
+      'Content-Type': 'application/json',
       'Authorization': concatToken
     }
-  }).then(res => {
-    const feature = res.data;
-    const lat = feature.lat;
-    const lng = feature.lon;
-    console.log(lat,lng);
-    this.setState({
-      latlng: {
-        lat: lat,
-        lng: lng
-      }
-    });
-  })
-
+  }
+    return new Promise((resolve, reject) => {
+        request.get(parameters.url, { headers: parameters.headers })
+            .then(res => {
+                resolve(res)
+                console.log(res)
+            })
+            .catch(e => {
+                //resolve(e.response.data.error)
+                resolve(e.response)
+            })
+    })
 }
