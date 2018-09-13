@@ -12,7 +12,6 @@ class Cadastre extends Component {
             config,
             onChangeCadastre
         } = this.props
-    console.log(this.props)
 
     return (
       <form
