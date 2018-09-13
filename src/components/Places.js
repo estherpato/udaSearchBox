@@ -41,6 +41,7 @@ class Places extends Component {
             <form status={statusPlaces}>
                 <label
                     htmlFor="input-search"
+                    style={{display: 'none'}}
                     // style={{ display: 'false' }}
                     // style={{ algoliaStyles }}    
                 >

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
@@ -23,7 +23,7 @@ class UdaSearchBox extends Component {
       token: null,
       refCadastre: '',
       error: ''
-       }
+    }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onChangeCadastre = this.onChangeCadastre.bind(this);
@@ -60,6 +60,7 @@ class UdaSearchBox extends Component {
   }
 
   onSubmitHandler(e) {
+    e.preventDefault();
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
@@ -86,11 +87,11 @@ class UdaSearchBox extends Component {
   }
 
   onClickHandlerPlaces(e) {
-    this.setState({placesActive: true, cadastreActive: false})
+    this.setState({ placesActive: true, cadastreActive: false })
   }
 
   onClickHandlerCadastre() {
-    this.setState({placesActive: false, cadastreActive: true})
+    this.setState({ placesActive: false, cadastreActive: true })
   }
 
   onCloseModal() {
@@ -103,7 +104,6 @@ class UdaSearchBox extends Component {
       placeholderCadastre,
       placesOn,
       cadastreOn,
-      onSubmit,
       configPlaces,
       configCadastre,
     } = this.props;
@@ -144,7 +144,7 @@ class UdaSearchBox extends Component {
             onCloseModal={this.onCloseModal}
           />)}
       </div>
-      );
+    );
   }
 }
 
