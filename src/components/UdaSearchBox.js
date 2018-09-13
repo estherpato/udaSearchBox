@@ -20,7 +20,6 @@ class UdaSearchBox extends Component {
       lng: null,
       token: null,
       refCadastre: '',
-      url: 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/'
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -42,7 +41,6 @@ class UdaSearchBox extends Component {
     this.setState({
       lat: lat,
       lng: lng,
-      // style:false,
     })
     this.props.onChange(lat, lng)
   }
@@ -50,12 +48,7 @@ class UdaSearchBox extends Component {
   onChangeCadastre(e) {
     this.setState({
       refCadastre: e.target.value
-    }, () => {
-      this.setState({
-        url: 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/' + this.state.refCadastre
-      })
-    });
-    console.log(this.state.refCadastre)
+    })
   }
 
   onSubmitHandler(e) {
@@ -64,7 +57,8 @@ class UdaSearchBox extends Component {
       const lng = this.state.lng;
       console.log('lat,lng', lat, lng)
     } else if (this.state.cadastreActive) {
-      coordinatesCadastre(this.state.token, this.state.url);
+      this.onChangeCadastre(e);
+      coordinatesCadastre(this.state.token, this.state.refCadastre);
     }
   }
 
