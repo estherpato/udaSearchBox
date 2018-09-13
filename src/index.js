@@ -5,8 +5,8 @@ import UdaSearchBox from './components/UdaSearchBox.js';
 //escribir en el readme cuales están marcadas por defecto
 
 const configUdaSearchBox = {
-  placeholderPlaces: '',
-  placeholderCadastre: '',
+  placeholderPlaces: 'Add an address',
+  placeholderCadastre: 'Add a cadastral referency',
   placesOn: true, //botón clickado
   cadastreOn: true, //botón clickado
   onSubmit: null,

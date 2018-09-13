@@ -23,7 +23,7 @@ class Cadastre extends Component {
                 }}>
                     {placeholder}
                 </label>
-                <input style={inputCadastre} type='text' onChange={onChangeCadastre}/>
+                <input style={inputCadastre} type='text' onChange={onChangeCadastre} placeholder={placeholder}/>
             </form>);
     }
 }
