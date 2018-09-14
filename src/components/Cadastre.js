@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { inputBox, formCadastre, inputCadastre } from '../stylesheets/StylesSearchBox';
 import PropTypes from 'prop-types';
 
@@ -10,20 +9,23 @@ class Cadastre extends Component {
             placeholder,
             statusCadastre,
             config,
-            onChangeCadastre
+            onChangeCadastre,
+            onChangeHandler,
+            onSubmitHandler
         } = this.props
 
         return (
             <form
                 status={statusCadastre}
                 style={formCadastre}
+                onSubmit={onSubmitHandler}
             >
                 <label htmlFor="input-search" style={{
                     display: 'none'
                 }}>
                     {placeholder}
                 </label>
-                <input style={inputCadastre} type='text' onChange={onChangeCadastre} placeholder={placeholder}/>
+                <input style={inputCadastre} type='text' onChange={onChangeCadastre} placeholder={placeholder} />
             </form>);
     }
 }
@@ -37,6 +39,5 @@ Cadastre.propTypes = {
     config: PropTypes.obj,
     onChangeCadastre: PropTypes.func
 };
-
 
 export default Cadastre;

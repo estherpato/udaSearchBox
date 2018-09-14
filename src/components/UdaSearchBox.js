@@ -60,12 +60,13 @@ class UdaSearchBox extends Component {
   }
 
   onSubmitHandler(e) {
-    e.preventDefault();
     if (this.state.placesActive) {
+      e.preventDefault()
       const lat = this.state.lat;
       const lng = this.state.lng;
       console.log('lat,lng', lat, lng)
     } else if (this.state.cadastreActive) {
+      e.preventDefault()
       this.onChangeCadastre(e)
       coordinatesCadastre(this.state.token, this.state.refCadastre)
         .then((res) => {
@@ -114,6 +115,7 @@ class UdaSearchBox extends Component {
             placeholder={placeholderCadastre}
             config={configCadastre}
             onChangeCadastre={this.onChangeCadastre}
+            onSubmitHandler={this.onSubmitHandler}
           />}
           <IconInput
             statusPlaces={placesOn}

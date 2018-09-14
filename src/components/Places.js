@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
 import '../stylesheets/style.css';
-import {inputBox,algoliaStyles} from '../stylesheets/StylesSearchBox';
+import { inputBox, algoliaStyles } from '../stylesheets/StylesSearchBox';
 
 class Places extends Component {
 
@@ -34,16 +34,21 @@ class Places extends Component {
         const {
             placeholder,
             statusPlaces,
-            config
+            config,
+            onChangeHandler,
+            onSubmitHandler,
         } = this.props
         console.log(this.props)
-        return (          
-            <form status={statusPlaces}>
+        return (
+            <form
+                status={statusPlaces}
+                onSubmit={onSubmitHandler}
+            >
                 <label
                     htmlFor="input-search"
-                    style={{display: 'none'}}
-                    // style={{ display: 'false' }}
-                    // style={{ algoliaStyles }}    
+                    style={{ display: 'none' }}
+                // style={{ display: 'false' }}
+                // style={{ algoliaStyles }}    
                 >
                     {placeholder}
                 </label>
