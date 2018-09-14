@@ -24,6 +24,7 @@ const buttonSearch = {
      color: 'white',
      textTransform: 'uppercase',
      left: '-66px',
+     fontFamily:'Gotham-Bold, Sans Serif'
 }
 
 const IconsBox = {
@@ -49,6 +50,7 @@ const mapIconBox = {
     marginRight: '20px',
     height: '18px',
     width: '18px',
+    
 }
 
 const inputBox = {
@@ -56,6 +58,9 @@ const inputBox = {
     padding: '8px',
     backgroundColor: '#EFF2F7',
     border: '0px solid #EFF2F7',
+    fontFamily:'Gotham-Light, Sans Serif',
+    fontSize:'14px',
+    paddingLeft:'10px',
 }
 
 const formCadastre = {
@@ -68,6 +73,9 @@ const inputCadastre = {
     padding: '0px',
     backgroundColor: '#EFF2F7',
     border: '0px solid #EFF2F7',
+    fontFamily:'Gotham-Light, Sans Serif',
+    fontSize:'14px',
+    paddingLeft:'10px',
 }
 
 
