@@ -60,8 +60,9 @@ class UdaSearchBox extends Component {
   }
 
   onSubmitHandler(e) {
+    e.preventDefault();
     if (this.state.placesActive) {
-      e.preventDefault()
+
       const lat = this.state.lat;
       const lng = this.state.lng;
       console.log('lat,lng', lat, lng)
@@ -110,6 +111,7 @@ class UdaSearchBox extends Component {
             placeholder={placeholderPlaces}
             config={configPlaces}
             onChangeHandler={this.onChangeHandler}
+            onSubmitHandler={this.onSubmitHandler}
           />}
           {((this.state.cadastreActive && cadastreOn) || (!placesOn && cadastreOn)) && <Cadastre
             placeholder={placeholderCadastre}

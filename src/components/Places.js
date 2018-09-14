@@ -35,7 +35,6 @@ class Places extends Component {
             placeholder,
             statusPlaces,
             config,
-            onChangeHandler,
             onSubmitHandler,
         } = this.props
         console.log(this.props)
@@ -43,6 +42,7 @@ class Places extends Component {
             <form
                 status={statusPlaces}
                 onSubmit={onSubmitHandler}
+                
             >
                 <label
                     htmlFor="input-search"
