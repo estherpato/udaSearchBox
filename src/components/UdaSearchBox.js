@@ -6,7 +6,7 @@ import Modal from './Modal.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
 import { coordinatesCadastre } from '../services/callCadastre.js';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import '../stylesheets/style.css';
 import { SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
@@ -67,16 +67,22 @@ class UdaSearchBox extends Component {
       console.log('lat,lng', lat, lng)
     } else if (this.state.cadastreActive) {
       this.onChangeCadastre(e)
-      coordinatesCadastre(this.state.token, this.state.refCadastre)
+      if (this.state.refCadastre === e.target.value) {
+        return null
+      } else if (this.state.refCadastre !== e.target.value) {
+        coordinatesCadastre(this.state.token, this.state.refCadastre)
         .then((res) => {
           const lat = res.data.lat;
           const lng = res.data.lon;
           this.setState({
             lat: lat,
             lng: lng
-          });
-          console.log(lat, lng)
+           });
+           console.log(lat,lng)
         })
+
+      }
+
     }
   }
 
@@ -143,11 +149,11 @@ class UdaSearchBox extends Component {
 }
 
 UdaSearchBox.propTypes = {
-  placesActive: PropTypes.bool,
-  cadastreActive: PropTypes.bool,
-  lat: PropTypes.number,
-  lng: PropTypes.number,
-  token: PropTypes.string
+  placesActive: propTypes.bool,
+  cadastreActive: propTypes.bool,
+  lat: propTypes.number,
+  lng: propTypes.number,
+  token: propTypes.string
 };
 
 
