@@ -31,6 +31,8 @@ const IconsBox = {
     right: '0%',
     top: '7px',
     cursor: 'pointer',
+    backgroundColor: '#EFF2F7',
+    margin:'1px',
 }
 
 const placeIconBox = {
