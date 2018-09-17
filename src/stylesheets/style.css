@@ -3,7 +3,11 @@
 }
 
 .ap-icon-clear {
-    display: none;
+    position: absolute;
+    right: 79px;
+    color: #B7BCC6;
+    background-color: #EFF2F7;
+    padding-left: 10px;
 }
 .ap-address{
     font-family: Gotham-Light, Sans Serif;
