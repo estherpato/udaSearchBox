@@ -55,6 +55,7 @@ class UdaSearchBox extends Component {
     })
   }
 
+  //Get coordinates info by sending an address or a cadastre reference
   onSubmitHandler(e) {
     e.preventDefault();
     if (this.state.placesActive) {
@@ -113,7 +114,6 @@ class UdaSearchBox extends Component {
   }
 
   render() {
-    //  console.log ("hola caracola", cadastreActive)
     const {
       placeholderPlaces,
       placeholderCadastre,

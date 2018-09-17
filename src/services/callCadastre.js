@@ -5,7 +5,7 @@ export function coordinatesCadastre(token, refCadastre) {
     const concatToken = textToken.concat(token);
     console.log(concatToken)
 
-    const preUrl = 'http://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/';
+    const preUrl = 'https://geo.reds.urbandataanalytics.com/geocoder/api/v1.0/cadastre/';
     const url = preUrl + refCadastre;
 
     const parameters = {
@@ -22,7 +22,6 @@ export function coordinatesCadastre(token, refCadastre) {
                 console.log(res)
             })
             .catch(e => {
-                //resolve(e.response.data.error)
                 resolve(e.response)
             })
     })
