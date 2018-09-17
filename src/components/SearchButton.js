@@ -7,7 +7,7 @@ class SearchButton extends Component {
         return (
                 <button
                     style={buttonSearch}
-                    type="submit"
+                    type="button"
                     onClick={this.props.onSubmitHandler}
                 >
                     Search
