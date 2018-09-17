@@ -22,7 +22,7 @@ class UdaSearchBox extends Component {
       lng: null,
       token: null,
       refCadastre: '',
-      error: ''
+      error: false,
     }
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -69,11 +69,10 @@ class UdaSearchBox extends Component {
         });
       } else {
         this.setState({
-          error: "hay un error"
+          error: true
         });
       }
     } else if (this.state.cadastreActive) {
-      e.preventDefault()
       this.onChangeCadastre(e)
       if (this.state.refCadastre === e.target.value) {
         return null
@@ -90,9 +89,8 @@ class UdaSearchBox extends Component {
                 lng: res.data.lon
               });
             } else {
-              const error = "hay un error";
               this.setState({
-                error: error
+                error: true
               });
             }
           })
@@ -110,7 +108,7 @@ class UdaSearchBox extends Component {
   }
 
   onCloseModal() {
-    this.setState({ modalIsOpen: false, error: "", placesActive: true, cadastreActive: "", })
+    this.setState({ modalIsOpen: false, error: false }, () => console.log(this.state))
   }
 
   render() {
@@ -155,8 +153,8 @@ class UdaSearchBox extends Component {
           lng={this.state.lng}
         />}
 
-        {(this.state.error.length > 1) &&
-          <Modal
+        {(this.state.error) &&
+          <PopUp
             placesStatus={this.state.placesActive}
             cadastreStatus={this.state.cadastreActive}
             modalStatus={this.state.modalIsOpen}

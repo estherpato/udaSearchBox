@@ -4,15 +4,16 @@
 
 .ap-icon-clear {
     position: absolute;
-    right: 79px;
+    right: 85px;
     color: #B7BCC6;
     background-color: #EFF2F7;
     padding-left: 10px;
 }
-.ap-address{
-    font-family: Gotham-Light, Sans Serif;
-}
-.ap-name{
-    font-family: Gotham-Light, Sans Serif;
+
+.ap-address {
+    font-family: Gotham-Light, sans-serif;
 }
 
+.ap-name {
+    font-family: Gotham-Light, sans-serif;
+}
