@@ -78,6 +78,38 @@ const inputCadastre = {
     paddingLeft:'10px',
 }
 
+const modalSecction = {
+    backgroundColor: 'rgb(231, 76, 60)',
+    fontSize:'14px',
+    fontFamily:'Gotham-Light, Sans Serif',
+    color: 'white',
+    minWidth: '220px',
+    maxWidth: '220px',
+    cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'space-around',
+    zIndex: '9999',
+    position: 'fixed',
+    top: '0px',
+    left: '20%',
+}
+
+const spanFonts = {
+    display: 'inline-block',
+    margin: '10px',
+}
+
+const buttonClose = {
+    display: 'inline-block',
+    color: 'white',
+    marginBottom: '10px',
+    backgroundColor: 'rgb(231, 76, 60)',
+    border: '0px solid #EFF2F7',
+    fontSize: '14px',
+    cursor: 'pointer',
+    opacity: '0.7',
+    fontFamily:'Gotham-Bold, Sans Serif',
+}
 
 
 
@@ -88,4 +120,6 @@ const inputCadastre = {
 
 
 
-export {SearchBox,algoliaStyles, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox,formCadastre,inputCadastre };
+
+
+export {SearchBox,algoliaStyles, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox,formCadastre,inputCadastre,modalSecction,spanFonts, buttonClose, };
