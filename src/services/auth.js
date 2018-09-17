@@ -13,7 +13,6 @@ export function getToken(user, pwd) {
                 resolve(res)
             })
             .catch(e => {
-                //resolve(e.response.data.error)
                 resolve(e.response)
             })
     })
