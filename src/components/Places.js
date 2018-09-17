@@ -67,7 +67,6 @@ Places.propTypes = {
     countries: PropTypes.arrayOf(PropTypes.string),
     disabled: PropTypes.bool,
     language: PropTypes.string,
-    // onChange: PropTypes.func.isRequired,
     onSuggestions: PropTypes.func.isRequired,
     onClear: PropTypes.func.isRequired,
     templates: PropTypes.object,
