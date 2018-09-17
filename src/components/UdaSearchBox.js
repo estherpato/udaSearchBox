@@ -39,11 +39,6 @@ class UdaSearchBox extends Component {
         const authToken = res.data.authToken;
         this.setState({ token: authToken }, () => console.log('token', this.state.token));
       })
-    // .catch((error) => {
-    //   console.error("holi", error);
-    //   this.setState({ error: 'hay un error' })
-    // });
-    // .catch((error) => {this.setState({error: 'mensaje'})});
   }
 
   onChangeHandler(lat, lng) {
@@ -127,7 +122,7 @@ class UdaSearchBox extends Component {
       configPlaces,
       configCadastre,
     } = this.props;
-    // const { error } = this.state;
+
     return (
       <div style={SearchBox}>
         <div style={imputIconsBox}>
@@ -152,15 +147,16 @@ class UdaSearchBox extends Component {
             onClickHandlerCadastre={this.onClickHandlerCadastre}
           />
         </div>
-        <SearchButton
+
+        {((this.state.cadastreActive && cadastreOn) || (!placesOn && cadastreOn)) && <SearchButton
           config={configCadastre}
           onSubmitHandler={this.onSubmitHandler}
           lat={this.state.lat}
           lng={this.state.lng}
-        />
+        />}
+
         {(this.state.error.length > 1) &&
           <Modal
-            // error={this.state.error}
             placesStatus={this.state.placesActive}
             cadastreStatus={this.state.cadastreActive}
             modalStatus={this.state.modalIsOpen}
