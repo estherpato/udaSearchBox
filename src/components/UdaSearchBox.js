@@ -39,10 +39,10 @@ class UdaSearchBox extends Component {
         const authToken = res.data.authToken;
         this.setState({ token: authToken }, () => console.log('token', this.state.token));
       })
-      // .catch((error) => {
-      //   console.error("holi", error);
-      //   this.setState({ error: 'hay un error' })
-      // });
+    // .catch((error) => {
+    //   console.error("holi", error);
+    //   this.setState({ error: 'hay un error' })
+    // });
     // .catch((error) => {this.setState({error: 'mensaje'})});
   }
 
@@ -51,8 +51,8 @@ class UdaSearchBox extends Component {
       lat: lat,
       lng: lng,
     })
-  } 
-  
+  }
+
 
   onChangeCadastre(e) {
     this.setState({
@@ -66,15 +66,16 @@ class UdaSearchBox extends Component {
       const lat = this.state.lat;
       const lng = this.state.lng;
       console.log('lat,lng', lat, lng);
-      if (lat!== null && lng !== null) {
+      if (lat !== null && lng !== null) {
         this.setState({
           lat: lat,
           lng: lng
-         });} else {
-          this.setState({
+        });
+      } else {
+        this.setState({
           error: "hay un error"
-           }); 
-          }
+        });
+      }
     } else if (this.state.cadastreActive) {
       e.preventDefault()
       this.onChangeCadastre(e)
@@ -82,25 +83,26 @@ class UdaSearchBox extends Component {
         return null
       } else if (this.state.refCadastre !== e.target.value) {
         coordinatesCadastre(this.state.token, this.state.refCadastre)
-        .then((res) => {
-          if (res !== undefined) {
-            console.log(res)
-            const lat = res.data.lat;
-            const lng = res.data.lon;
-            console.log(lat,lng);
-            this.setState({ 
-              lat: res.data.lat,
-              lng: res.data.lon
-             });} else {
-              const error= "hay un error";
+          .then((res) => {
+            if (res !== undefined) {
+              console.log(res)
+              const lat = res.data.lat;
+              const lng = res.data.lon;
+              console.log(lat, lng);
               this.setState({
-              error: error
-               }); 
-             }
-        })
+                lat: res.data.lat,
+                lng: res.data.lon
+              });
+            } else {
+              const error = "hay un error";
+              this.setState({
+                error: error
+              });
+            }
+          })
       }
     }
-    
+
   }
 
   onClickHandlerPlaces(e) {
@@ -112,12 +114,12 @@ class UdaSearchBox extends Component {
   }
 
   onCloseModal() {
-    this.setState({ modalIsOpen: false , error: "", placesActive: true, cadastreActive:"",})
+    this.setState({ modalIsOpen: false, error: "", placesActive: true, cadastreActive: "", })
   }
 
   render() {
     //  console.log ("hola caracola", cadastreActive)
-     const {
+    const {
       placeholderPlaces,
       placeholderCadastre,
       placesOn,

@@ -72,7 +72,7 @@ class IconInput extends Component {
     }
 }
 
-   
+
 
 
 export default IconInput;

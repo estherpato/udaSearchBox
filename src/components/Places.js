@@ -42,11 +42,11 @@ class Places extends Component {
             <form
                 status={statusPlaces}
                 onSubmit={onSubmitHandler}
-                
+
             >
                 <label
                     htmlFor="input-search"
-                    style={{display: 'none'}}   
+                    style={{ display: 'none' }}
                 >
                     {placeholder}
                 </label>
