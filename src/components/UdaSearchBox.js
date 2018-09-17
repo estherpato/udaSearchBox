@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Places from './Places.js';
 import Cadastre from './Cadastre.js'
 import IconInput from './IconInput.js';
-import Modal from './Modal.js';
+import PopUp from './PopUp.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
 import { coordinatesCadastre } from '../services/callCadastre.js';
