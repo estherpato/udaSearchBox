@@ -4,7 +4,11 @@ import { modalSecction, spanFonts, buttonClose } from '../stylesheets/StylesSear
 
 class PopUp extends Component {
     render() {
-        const { placesStatus, cadastreStatus, popUpStatus, onClosePopUp,
+        const {
+            placesStatus,
+            cadastreStatus,
+            popUpStatus,
+            onClosePopUp,
         } = this.props;
 
         if (placesStatus && popUpStatus) {
@@ -45,6 +49,13 @@ class PopUp extends Component {
             );
         }
     }
+}
+
+PopUp.PropTypes = {
+    placesStatus: PropTypes.bool,
+    cadastreStatus: PropTypes.bool,
+    popUpStatus: PropTypes.bool,
+    onClosePopUp: PropTypes.bool,
 }
 
 export default PopUp;
