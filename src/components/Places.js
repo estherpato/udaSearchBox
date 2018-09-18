@@ -37,7 +37,7 @@ class Places extends Component {
             config,
             onSubmitHandler,
         } = this.props
-        console.log(this.props)
+
         return (
             <form
                 status={statusPlaces}

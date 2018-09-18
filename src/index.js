@@ -26,20 +26,17 @@ const configUdaSearchBox = {
     templates: null,
     type: ['city', 'country', 'address', 'busStop', 'trainStation', 'townhall', 'airport'],
     useDeviceLocation: "false",
-  },
-
-  configCadastre: {
-    onChange: false,
   }
 }
 
-ReactDOM.render(<UdaSearchBox
-  placeholderPlaces={configUdaSearchBox.placeholderPlaces}
-  placeholderCadastre={configUdaSearchBox.placeholderCadastre}
-  placesOn={configUdaSearchBox.placesOn}
-  cadastreOn={configUdaSearchBox.cadastreOn}
-  onSubmit={configUdaSearchBox.onSubmit}
-  style={configUdaSearchBox.style}
-  configPlaces={configUdaSearchBox.configPlaces}
-  configCadastre={configUdaSearchBox.configCadastre}
-/>, document.getElementById('root'));
+ReactDOM.render(
+  <UdaSearchBox
+    placeholderPlaces={configUdaSearchBox.placeholderPlaces}
+    placeholderCadastre={configUdaSearchBox.placeholderCadastre}
+    placesOn={configUdaSearchBox.placesOn}
+    cadastreOn={configUdaSearchBox.cadastreOn}
+    onSubmit={configUdaSearchBox.onSubmit}
+    style={configUdaSearchBox.style}
+    configPlaces={configUdaSearchBox.configPlaces}
+  />,
+  document.getElementById('root'));
