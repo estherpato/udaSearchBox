@@ -63,21 +63,27 @@ class UdaSearchBox extends Component {
        }
       } else if (this.state.cadastreActive) {
       if (this.state.refCadastre === e.target.value) {
-        return null
+        if (this.state.lat == null || this.state.lng== null) {
+          this.setState({
+            error: true,
+            popUpIsOpen: true,
+          }, () => console.log(this.state.lat, this.state.lng));
+        }else { return null}
       } else if (this.state.refCadastre !== e.target.value) {
         this.onChangeHandlerCadastre(e);
         coordinatesCadastre(this.state.token, this.state.refCadastre)
           .then((res) => {
-            if (res !== undefined) {
+            if (res == undefined) {
               console.log(res)
-              this.setState({
-                lat: res.data.lat,
-                lng: res.data.lon
-              }, () => console.log(this.state.lat, this.state.lng));
-            } else {
               this.setState({
                 error: true,
                 popUpIsOpen: true,
+              }, () => console.log(this.state.lat, this.state.lng));
+            } else {
+              console.log("holicaracoli", this.setState)
+              this.setState({
+                lat: res.data.lat,
+                lng: res.data.lon,
               });
             }
           })
