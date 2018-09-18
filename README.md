@@ -44,6 +44,14 @@ https://community.algolia.com/places/documentation.html
 - UdaSearch box is made with inline Styling, however, to modify default styles from algolia we've had to use CSS3. 
 - Cadastre has associated a search button, when you click on it, it will give you the coordinates. However, Places hasn't that button, and will submit the info to get the coordinates by pressing the enter key.
 -Coordinates obtained by search can be sended to other uda or external components.
+-Call to UDA api was made with axios.get
+
+### Tech
+
+Uda Data Box uses a number of open source projects to work properly:
+* [ ReactJS ]
+* [ Algolia Places ]
+* [ Axios ]
 
 # Authors
 - **Esther Pato** - https://github.com/estherpato 
