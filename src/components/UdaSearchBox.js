@@ -55,18 +55,13 @@ class UdaSearchBox extends Component {
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
-      if (lat !== null && lng !== null) {
-        this.setState({
-          lat: lat,
-          lng: lng
-        }, () => console.log(this.state.lat, this.state.lng));
-      } else {
+      if (lat == null || lng == null) {
         this.setState({
           error: true,
           popUpIsOpen: true,
-        });
-      }
-    } else if (this.state.cadastreActive) {
+        }, () => console.log(this.state.lat, this.state.lng));
+       }
+      } else if (this.state.cadastreActive) {
       if (this.state.refCadastre === e.target.value) {
         return null
       } else if (this.state.refCadastre !== e.target.value) {
@@ -91,11 +86,11 @@ class UdaSearchBox extends Component {
   }
 
   onClickHandlerPlaces(e) {
-    this.setState({ placesActive: true, cadastreActive: false })
+    this.setState({ placesActive: true, cadastreActive: false, error:false })
   }
 
   onClickHandlerCadastre() {
-    this.setState({ placesActive: false, cadastreActive: true })
+    this.setState({ placesActive: false, cadastreActive: true, error:false })
   }
 
   onClosePopUp() {
