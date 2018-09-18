@@ -67,10 +67,10 @@ class UdaSearchBox extends Component {
         });
       }
     } else if (this.state.cadastreActive) {
-      this.onChangeHandlerCadastre(e)
       if (this.state.refCadastre === e.target.value) {
         return null
       } else if (this.state.refCadastre !== e.target.value) {
+        this.onChangeHandlerCadastre(e);
         coordinatesCadastre(this.state.token, this.state.refCadastre)
           .then((res) => {
             if (res !== undefined) {
@@ -78,7 +78,7 @@ class UdaSearchBox extends Component {
               this.setState({
                 lat: res.data.lat,
                 lng: res.data.lon
-              }, () => console.log(this.state.lat, this.state.lon));
+              }, () => console.log(this.state.lat, this.state.lng));
             } else {
               this.setState({
                 error: true,

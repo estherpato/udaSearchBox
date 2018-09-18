@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import UdaSearchBox from './components/UdaSearchBox.js';
-import './stylesheets/fonts/fonts.css';
 
 //escribir en el readme cuales están marcadas por defecto
 
 const configUdaSearchBox = {
   placeholderPlaces: 'Add an address',
   placeholderCadastre: 'Add a cadastral referency',
-  placesOn: true,
-  cadastreOn: true,
+  placesOn: true, //botón clickado
+  cadastreOn: true, //botón clickado
   onSubmit: null,
 
   configPlaces: {
@@ -18,7 +17,7 @@ const configUdaSearchBox = {
     aroundLatLng: null,
     aroundRadius: null,
     countries: ['sp'],
-    disabled: "false",
+    disabled: "false", // llamada activa o no
     language: navigator.language,
     onChange: false,
     onSuggestions: null,
@@ -26,17 +25,20 @@ const configUdaSearchBox = {
     templates: null,
     type: ['city', 'country', 'address', 'busStop', 'trainStation', 'townhall', 'airport'],
     useDeviceLocation: "false",
+  },
+
+  configCadastre: {
+    onChange: false,
   }
 }
 
-ReactDOM.render(
-  <UdaSearchBox
-    placeholderPlaces={configUdaSearchBox.placeholderPlaces}
-    placeholderCadastre={configUdaSearchBox.placeholderCadastre}
-    placesOn={configUdaSearchBox.placesOn}
-    cadastreOn={configUdaSearchBox.cadastreOn}
-    onSubmit={configUdaSearchBox.onSubmit}
-    style={configUdaSearchBox.style}
-    configPlaces={configUdaSearchBox.configPlaces}
-  />,
-  document.getElementById('root'));
+ReactDOM.render(<UdaSearchBox
+  placeholderPlaces={configUdaSearchBox.placeholderPlaces}
+  placeholderCadastre={configUdaSearchBox.placeholderCadastre}
+  placesOn={configUdaSearchBox.placesOn}
+  cadastreOn={configUdaSearchBox.cadastreOn}
+  onSubmit={configUdaSearchBox.onSubmit}
+  style={configUdaSearchBox.style}
+  configPlaces={configUdaSearchBox.configPlaces}
+  configCadastre={configUdaSearchBox.configCadastre}
+/>, document.getElementById('root'));
