@@ -1,4 +1,4 @@
-# Uda Search Box
+
 
 Search component of Urban Data Analytics. It gets the latitude and altitude from :
 - Addresses (with Algolia Places)
@@ -7,6 +7,12 @@ Search component of Urban Data Analytics. It gets the latitude and altitude from
 You can send the coordinates to other UDA's components or external components.
 
 # Getting Started with Uda Search Box
+
+##Prerrequisites
+
+If you want to use udaSearchBox you need to have an user and a password from pulse, the urban data analytic's tool.
+
+##Install udaSearchBox
 
 To start with udaSearchBox, first, you have to install the npm package.
 
@@ -57,4 +63,4 @@ Uda Data Box uses a number of open source projects to work properly:
 - **Esther Pato** - https://github.com/estherpato 
 - **Valeria Roldán** - https://github.com/valromo
 - **Loreto Vaquero** - https://github.com/VaqueroFontenla
-- **Laura Vargas** - https://github.com/lauraVzarco
+- **Laura Vargas** - https://github.com/lauraVzarco# Uda Search Box
