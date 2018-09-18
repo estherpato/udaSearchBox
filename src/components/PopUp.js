@@ -4,9 +4,9 @@ import { modalSecction, spanFonts, buttonClose } from '../stylesheets/StylesSear
 
 class PopUp extends Component {
     render() {
-        const { placesStatus, cadastreStatus, modalStatus, onCloseModal,
+        const { placesStatus, cadastreStatus, popUpStatus, onClosePopUp,
         } = this.props;
-        if (placesStatus && modalStatus) {
+        if (placesStatus && popUpStatus) {
             return (
                 <section style={modalSecction}>
                     <div style={modalSecction}>
@@ -17,14 +17,14 @@ class PopUp extends Component {
                         </span>
                         <button
                             style={buttonClose}
-                            onClick={onCloseModal}
+                            onClick={onClosePopUp}
                         >
                             ✖
                         </button>
                     </div>
                 </section>
             );
-        } else if (cadastreStatus && modalStatus) {
+        } else if (cadastreStatus && popUpStatus) {
             return (
                 <section style={modalSecction}>
                     <div style={modalSecction}>
@@ -35,7 +35,7 @@ class PopUp extends Component {
                         </span>
                         <button
                             style={buttonClose}
-                            onClick={onCloseModal}
+                            onClick={onClosePopUp}
                         >
                             ✖
                         </button>
