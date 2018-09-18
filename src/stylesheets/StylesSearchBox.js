@@ -16,15 +16,15 @@ const imputIconsBox = {
 
 const buttonSearch = {
     flexGrow: '0',
-     width: '70px',
-     height: '35px',
-     padding: '5px',
-     border: '0px',
-     background: '#CA1C24',
-     color: 'white',
-     textTransform: 'uppercase',
-     left: '-66px',
-     fontFamily:'Gotham-Bold, Sans Serif'
+    width: '70px',
+    height: '35px',
+    padding: '5px',
+    border: '0px',
+    background: '#CA1C24',
+    color: 'white',
+    textTransform: 'uppercase',
+    left: '-66px',
+    fontFamily: 'Gotham-Bold, Sans Serif'
 }
 
 const IconsBox = {
@@ -33,7 +33,7 @@ const IconsBox = {
     top: '7px',
     cursor: 'pointer',
     backgroundColor: '#EFF2F7',
-    margin:'1px',
+    margin: '1px',
 }
 
 const placeIconBox = {
@@ -50,7 +50,7 @@ const mapIconBox = {
     marginRight: '20px',
     height: '18px',
     width: '18px',
-    
+
 }
 
 const inputBox = {
@@ -58,9 +58,9 @@ const inputBox = {
     padding: '8px',
     backgroundColor: '#EFF2F7',
     border: '0px solid #EFF2F7',
-    fontFamily:'Gotham-Light, Sans Serif',
-    fontSize:'14px',
-    paddingLeft:'10px',
+    fontFamily: 'Gotham-Light, Sans Serif',
+    fontSize: '14px',
+    paddingLeft: '10px',
 }
 
 const formCadastre = {
@@ -68,20 +68,20 @@ const formCadastre = {
 }
 
 const inputCadastre = {
-    width:'100%',
+    width: '100%',
     height: '35px',
     padding: '0px',
     backgroundColor: '#EFF2F7',
     border: '0px solid #EFF2F7',
-    fontFamily:'Gotham-Light, Sans Serif',
-    fontSize:'14px',
-    paddingLeft:'10px',
+    fontFamily: 'Gotham-Light, Sans Serif',
+    fontSize: '14px',
+    paddingLeft: '10px',
 }
 
 const modalSecction = {
     backgroundColor: 'rgb(231, 76, 60)',
-    fontSize:'14px',
-    fontFamily:'Gotham-Light, Sans Serif',
+    fontSize: '14px',
+    fontFamily: 'Gotham-Light, Sans Serif',
     color: 'white',
     minWidth: '220px',
     maxWidth: '220px',
@@ -108,18 +108,11 @@ const buttonClose = {
     fontSize: '14px',
     cursor: 'pointer',
     opacity: '0.7',
-    fontFamily:'Gotham-Bold, Sans Serif',
+    fontFamily: 'Gotham-Bold, Sans Serif',
 }
 
+const labelHidden = {
+    display: 'none'
+}
 
-
-
-
-
-
-
-
-
-
-
-export {SearchBox,algoliaStyles, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox,formCadastre,inputCadastre,modalSecction,spanFonts, buttonClose, };
+export { SearchBox, algoliaStyles, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox, formCadastre, inputCadastre, modalSecction, spanFonts, buttonClose, labelHidden};

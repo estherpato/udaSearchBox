@@ -2,42 +2,49 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { modalSecction, spanFonts, buttonClose } from '../stylesheets/StylesSearchBox';
 
-
-class Modal extends Component {
+class PopUp extends Component {
     render() {
-        const { placesStatus, cadastreStatus, modalStatus, onCloseModal,
+        const { placesStatus, cadastreStatus, popUpStatus, onClosePopUp,
         } = this.props;
-        if (placesStatus && modalStatus) {
+
+        if (placesStatus && popUpStatus) {
             return (
                 <section style={modalSecction}>
                     <div style={modalSecction}>
-                        <span style={spanFonts}> Address was not found </span>
+                        <span
+                            style={spanFonts}
+                        >
+                            Address was not found
+                        </span>
                         <button
                             style={buttonClose}
-                            onClick={onCloseModal}
+                            onClick={onClosePopUp}
                         >
                             ✖
-                                    </button>
+                        </button>
                     </div>
                 </section>
             );
-        } else if (cadastreStatus && modalStatus) {
+        } else if (cadastreStatus && popUpStatus) {
             return (
                 <section style={modalSecction}>
                     <div style={modalSecction}>
-                        <span style={spanFonts}> Cadastral reference is not valid</span>
+                        <span
+                            style={spanFonts}
+                        >
+                            Cadastral reference is not valid
+                        </span>
                         <button
                             style={buttonClose}
-                            onClick={onCloseModal}
+                            onClick={onClosePopUp}
                         >
                             ✖
-                                    </button>
+                        </button>
                     </div>
                 </section>
-
             );
         }
     }
 }
 
-export default Modal;
+export default PopUp;
