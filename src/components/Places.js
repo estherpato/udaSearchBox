@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
 import '../stylesheets/style.css';
-import { inputBox, algoliaStyles } from '../stylesheets/StylesSearchBox';
+import { inputBox, algoliaStyles, labelHidden } from '../stylesheets/StylesSearchBox';
 
 class Places extends Component {
 
@@ -46,7 +46,7 @@ class Places extends Component {
             >
                 <label
                     htmlFor="input-search"
-                    style={{ display: 'none' }}
+                    style={labelHidden}
                 >
                     {placeholder}
                 </label>

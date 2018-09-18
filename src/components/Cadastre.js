@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { inputBox, formCadastre, inputCadastre } from '../stylesheets/StylesSearchBox';
+import { inputBox, formCadastre, inputCadastre, labelHidden } from '../stylesheets/StylesSearchBox';
 import PropTypes from 'prop-types';
 
 
@@ -20,9 +20,10 @@ class Cadastre extends Component {
                 style={formCadastre}
                 onSubmit={onSubmitHandler}
             >
-                <label htmlFor="input-search" style={{
-                    display: 'none'
-                }}>
+                <label
+                    htmlFor="input-search"
+                    style={labelHidden}
+                >
                     {placeholder}
                 </label>
                 <input style={inputCadastre} type='text' onChange={onChangeCadastre} placeholder={placeholder} />

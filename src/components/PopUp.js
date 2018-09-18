@@ -6,6 +6,7 @@ class PopUp extends Component {
     render() {
         const { placesStatus, cadastreStatus, popUpStatus, onClosePopUp,
         } = this.props;
+
         if (placesStatus && popUpStatus) {
             return (
                 <section style={modalSecction}>
