@@ -1,4 +1,4 @@
-
+# udaSearchBox
 
 Search component of Urban Data Analytics. It gets the latitude and altitude from :
 - Addresses (with Algolia Places)
@@ -8,11 +8,11 @@ You can send the coordinates to other UDA's components or external components.
 
 # Getting Started with Uda Search Box
 
-##Prerrequisites
+## Prerrequisites
 
 If you want to use udaSearchBox you need to have an user and a password from pulse, the urban data analytic's tool.
 
-##Install udaSearchBox
+## Install udaSearchBox
 
 To start with udaSearchBox, first, you have to install the npm package.
 
@@ -27,8 +27,7 @@ The props you can configurate are the following ones:
 | Prop | type | description |
 | ------ | ------ | ------ |
 | placeholderPlaces & placeholderCadastre | text | The text that you want to see in the placeholder of places/cadastre |  
-| placesOn & cadastreOn| boolean | 
-Set the "presence" of the search bar. If it's true, the user will be able to use it. If it's false it won't be shown on the web. They can both be true or set only one. If both are false, the "places" bar will be display |
+| placesOn & cadastreOn| boolean | Set the "presence" of the search bar. If it's true, the user will be able to use it If it's false it won't be shown on the web They can both be true or set only one If both are false, the "places" bar will be display |
 | onSubmit | null | For send the coordinates info. You can modify it later|
 | configPlaces | object | Object with Algolias Places's props. e  |
 | configCadastre | object | Object with Cadastre props. We'll shot it after configPlaces's table |
