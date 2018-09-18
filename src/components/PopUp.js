@@ -51,7 +51,7 @@ class PopUp extends Component {
     }
 }
 
-PopUp.PropTypes = {
+PopUp.propTypes = {
     placesStatus: PropTypes.bool,
     cadastreStatus: PropTypes.bool,
     popUpStatus: PropTypes.bool,

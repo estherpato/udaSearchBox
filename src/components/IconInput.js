@@ -72,7 +72,13 @@ class IconInput extends Component {
     }
 }
 
-
-
+IconInput.propTypes = {
+    statusPlaces: PropTypes.bool,
+    statusCadastre: PropTypes.bool,
+    placesActive: PropTypes.bool,
+    cadastreActive: PropTypes.bool,
+    onClickHandlerPlaces: PropTypes.func.isRequired,
+    onClickHandlerCadastre: PropTypes.func.isRequired,
+}
 
 export default IconInput;

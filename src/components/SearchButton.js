@@ -20,7 +20,7 @@ class SearchButton extends Component {
     }
 }
 
-SearchButton.PropTypes = {
+SearchButton.propTypes = {
     onSubmitHandler: PropTypes.func.isRequired,
 };
 
