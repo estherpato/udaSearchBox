@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { buttonSearch } from '../stylesheets/StylesSearchBox';
+import { buttonSearch } from '../stylesheets/stylesSearchBox';
 import PropTypes from 'prop-types';
 
 class SearchButton extends Component {

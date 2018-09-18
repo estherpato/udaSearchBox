@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { modalSecction, spanFonts, buttonClose } from '../stylesheets/StylesSearchBox';
+import { modalSecction, spanFonts, buttonClose } from '../stylesheets/stylesSearchBox';
 
 class PopUp extends Component {
     render() {

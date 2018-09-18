@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { formCadastre, inputCadastre, labelHidden } from '../stylesheets/StylesSearchBox';
+import { formCadastre, inputCadastre, labelHidden } from '../stylesheets/stylesSearchBox';
 import PropTypes from 'prop-types';
 
 class Cadastre extends Component {

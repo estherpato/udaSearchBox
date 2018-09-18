@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
 import '../stylesheets/stylePlaces.css';
-import { inputBox, labelHidden } from '../stylesheets/StylesSearchBox';
+import { inputBox, labelHidden } from '../stylesheets/stylesSearchBox';
 
 class Places extends Component {
 

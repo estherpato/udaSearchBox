@@ -6,7 +6,7 @@ import PopUp from './PopUp.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
 import { coordinatesCadastre } from '../services/callCadastre.js';
-import { SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
+import { SearchBox, imputIconsBox } from '../stylesheets/stylesSearchBox.js';
 
 class UdaSearchBox extends Component {
   constructor(props) {
