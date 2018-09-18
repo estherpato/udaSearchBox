@@ -55,7 +55,7 @@ PopUp.propTypes = {
     placesStatus: PropTypes.bool,
     cadastreStatus: PropTypes.bool,
     popUpStatus: PropTypes.bool,
-    onClosePopUp: PropTypes.bool,
+    onClosePopUp: PropTypes.func.isRequired,
 }
 
 export default PopUp;
