@@ -19,7 +19,6 @@ export function coordinatesCadastre(token, refCadastre) {
         request.get(parameters.url, { headers: parameters.headers })
             .then(res => {
                 resolve(res)
-                console.log(res)
             })
             .catch(e => {
                 resolve(e.response)
