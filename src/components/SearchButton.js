@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 
 class SearchButton extends Component {
     render() {
+        const {
+            onSubmitHandler,
+        } = this.props
+
         return (
             <button
                 style={buttonSearch}
                 type="button"
-                onClick={this.props.onSubmitHandler}
+                onClick={onSubmitHandler}
             >
                 Search
                 </button>
@@ -16,9 +20,8 @@ class SearchButton extends Component {
     }
 }
 
-export default SearchButton;
-
-SearchButton.PropTypesm = {
-    style: PropTypes.object,
-    onClick: PropTypes.func
+SearchButton.PropTypes = {
+    onSubmitHandler: PropTypes.func.isRequired,
 };
+
+export default SearchButton;

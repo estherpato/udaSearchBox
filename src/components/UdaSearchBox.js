@@ -146,10 +146,7 @@ class UdaSearchBox extends Component {
         {((this.state.cadastreActive && cadastreOn)
           || (!placesOn && cadastreOn))
           && <SearchButton
-            config={configCadastre}
             onSubmitHandler={this.onSubmitHandler}
-            lat={this.state.lat}
-            lng={this.state.lng}
           />}
 
         {(this.state.error)
