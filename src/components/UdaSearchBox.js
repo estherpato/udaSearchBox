@@ -6,7 +6,6 @@ import PopUp from './PopUp.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
 import { coordinatesCadastre } from '../services/callCadastre.js';
-import '../stylesheets/style.css';
 import { SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
 
 class UdaSearchBox extends Component {
@@ -56,7 +55,6 @@ class UdaSearchBox extends Component {
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
-      // console.log('lat,lng', lat, lng);
       if (lat !== null && lng !== null) {
         this.setState({
           lat: lat,
@@ -111,8 +109,13 @@ class UdaSearchBox extends Component {
       placesOn,
       cadastreOn,
       configPlaces,
-      configCadastre,
     } = this.props;
+
+    const {
+      placesActive,
+      cadastreActive,
+      popUpIsOpen,
+    } = this.state
 
     return (
       <div style={SearchBox}>
@@ -135,8 +138,8 @@ class UdaSearchBox extends Component {
           <IconInput
             statusPlaces={placesOn}
             statusCadastre={cadastreOn}
-            placesActive={this.state.placesActive}
-            cadastreActive={this.state.cadastreActive}
+            placesActive={placesActive}
+            cadastreActive={cadastreActive}
             onClickHandlerPlaces={this.onClickHandlerPlaces}
             onClickHandlerCadastre={this.onClickHandlerCadastre}
           />
@@ -152,7 +155,7 @@ class UdaSearchBox extends Component {
           && <PopUp
             placesStatus={this.state.placesActive}
             cadastreStatus={this.state.cadastreActive}
-            popUpStatus={this.state.popUpIsOpen}
+            popUpStatus={popUpIsOpen}
             onClosePopUp={this.onClosePopUp}
           />}
       </div>
