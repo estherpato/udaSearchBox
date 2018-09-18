@@ -6,8 +6,7 @@ import PopUp from './PopUp.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
 import { coordinatesCadastre } from '../services/callCadastre.js';
-import '../stylesheets/style.css';
-import { SearchBox, imputIconsBox } from '../stylesheets/StylesSearchBox';
+import { SearchBox, imputIconsBox } from '../stylesheets/stylesSearchBox.js';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -56,7 +55,6 @@ class UdaSearchBox extends Component {
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
-      // console.log('lat,lng', lat, lng);
       if (lat !== null && lng !== null) {
         this.setState({
           lat: lat,
@@ -111,8 +109,13 @@ class UdaSearchBox extends Component {
       placesOn,
       cadastreOn,
       configPlaces,
-      configCadastre,
     } = this.props;
+
+    const {
+      placesActive,
+      cadastreActive,
+      popUpIsOpen,
+    } = this.state
 
     return (
       <div style={SearchBox}>
@@ -129,15 +132,14 @@ class UdaSearchBox extends Component {
             || (!placesOn && cadastreOn))
             && <Cadastre
               placeholder={placeholderCadastre}
-              config={configCadastre}
               onChangeHandlerCadastre={this.onChangeHandlerCadastre}
               onSubmitHandler={this.onSubmitHandler}
             />}
           <IconInput
             statusPlaces={placesOn}
             statusCadastre={cadastreOn}
-            placesActive={this.state.placesActive}
-            cadastreActive={this.state.cadastreActive}
+            placesActive={placesActive}
+            cadastreActive={cadastreActive}
             onClickHandlerPlaces={this.onClickHandlerPlaces}
             onClickHandlerCadastre={this.onClickHandlerCadastre}
           />
@@ -146,17 +148,14 @@ class UdaSearchBox extends Component {
         {((this.state.cadastreActive && cadastreOn)
           || (!placesOn && cadastreOn))
           && <SearchButton
-            config={configCadastre}
             onSubmitHandler={this.onSubmitHandler}
-            lat={this.state.lat}
-            lng={this.state.lng}
           />}
 
         {(this.state.error)
           && <PopUp
             placesStatus={this.state.placesActive}
             cadastreStatus={this.state.cadastreActive}
-            popUpStatus={this.state.popUpIsOpen}
+            popUpStatus={popUpIsOpen}
             onClosePopUp={this.onClosePopUp}
           />}
       </div>

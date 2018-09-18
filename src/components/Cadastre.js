@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
-import { inputBox, formCadastre, inputCadastre, labelHidden } from '../stylesheets/StylesSearchBox';
+import { formCadastre, inputCadastre, labelHidden } from '../stylesheets/stylesSearchBox';
 import PropTypes from 'prop-types';
-
 
 class Cadastre extends Component {
     render() {
         const {
             placeholder,
-            statusCadastre,
-            config,
-            onChangeCadastre,
-            onChangeHandler,
-            onSubmitHandler
+            onChangeHandlerCadastre,
+            onSubmitHandler,
         } = this.props
 
         return (
             <form
-                status={statusCadastre}
                 style={formCadastre}
                 onSubmit={onSubmitHandler}
             >
@@ -26,19 +21,21 @@ class Cadastre extends Component {
                 >
                     {placeholder}
                 </label>
-                <input style={inputCadastre} type='text' onChange={onChangeCadastre} placeholder={placeholder} />
-            </form>);
+                <input
+                    style={inputCadastre}
+                    type='text'
+                    onChange={onChangeHandlerCadastre}
+                    placeholder={placeholder}
+                />
+            </form>
+        );
     }
 }
 
 Cadastre.propTypes = {
-    refCadastre: PropTypes.number,
-    cadastreActive: PropTypes.bool,
-    statusCadastre: PropTypes.bool,
-    latlng: PropTypes.obj,
     placeholder: PropTypes.string,
-    config: PropTypes.obj,
-    onChangeCadastre: PropTypes.func
+    onChangeHandlerCadastre: PropTypes.func.isRequired,
+    onSubmitHandler: PropTypes.func.isRequired,
 };
 
 export default Cadastre;

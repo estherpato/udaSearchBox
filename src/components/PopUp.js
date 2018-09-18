@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { modalSecction, spanFonts, buttonClose } from '../stylesheets/StylesSearchBox';
+import { modalSecction, spanFonts, buttonClose } from '../stylesheets/stylesSearchBox';
 
 class PopUp extends Component {
     render() {
-        const { placesStatus, cadastreStatus, popUpStatus, onClosePopUp,
+        const {
+            placesStatus,
+            cadastreStatus,
+            popUpStatus,
+            onClosePopUp,
         } = this.props;
 
         if (placesStatus && popUpStatus) {
@@ -45,6 +49,13 @@ class PopUp extends Component {
             );
         }
     }
+}
+
+PopUp.propTypes = {
+    placesStatus: PropTypes.bool,
+    cadastreStatus: PropTypes.bool,
+    popUpStatus: PropTypes.bool,
+    onClosePopUp: PropTypes.bool,
 }
 
 export default PopUp;
