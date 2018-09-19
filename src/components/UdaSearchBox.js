@@ -21,6 +21,7 @@ class UdaSearchBox extends Component {
       lng: null,
       token: null,
       refCadastre: '',
+      refApiCall: '',
       error: false,
     }
 
@@ -48,8 +49,17 @@ class UdaSearchBox extends Component {
   }
 
   onChangeHandlerCadastre(e) {
-    this.setState({ refCadastre: e.target.value })
-  }
+    this.setState({ refCadastre: e.target.value }, () => console.log(this.state.refCadastre))
+    // if(this.state.lat !== null || this.state.lng !== null
+    // && this.state.refCadastre === e.target.value) {
+    //   this.setState({
+    //     lat: null,
+    //     lng: null,         
+    //   }, () => console.log('change', this.state.lat, this.state.lng))
+    // }else {
+    //   this.setState({ refCadastre: e.target.value })
+    // }
+    }
 
   //Get coordinates info by sending an address or a cadastre reference
   onSubmitHandler(e) {
@@ -57,7 +67,7 @@ class UdaSearchBox extends Component {
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
-      if (lat == null || lng == null) {
+      if (lat === null || lng === null) {
         this.setState({
           error: true,
           popUpIsOpen: true,
@@ -65,26 +75,29 @@ class UdaSearchBox extends Component {
       }
       this.props.showCoordinates(lat, lng);
     } else if (this.state.cadastreActive) {
-      if (this.state.refCadastre === e.target.value) {
-        if (this.state.lat == null || this.state.lng == null) {
-          this.setState({
-            error: true,
-            popUpIsOpen: true,
-          });
-        } else {
-          return null
-        }
-      } else if (this.state.refCadastre !== e.target.value) {
+     if (this.state.refCadastre === this.state.refApiCall) {
+        return null
+      }
+        // if (this.state.lat === null || this.state.lng === null) {
+        //   this.setState({
+        //     error: true,
+        //     popUpIsOpen: true,
+        //   });
+        // } else 
+        // {
+        //   return null
+        // }
+      } else if (this.state.refApiCall !== this.state.refCadastre) {
         this.onChangeHandlerCadastre(e);
         coordinatesCadastre(this.state.token, this.state.refCadastre)
           .then((res) => {
-            if (res == undefined) {
+            if (res === undefined && this.state.lng === null) {
               console.log(res)
               this.setState({
                 error: true,
                 popUpIsOpen: true,
               });
-            } else {
+            } else if (res !== undefined && this.state.lng === null) {
               this.setState({
                 lat: res.data.lat,
                 lng: res.data.lon,
@@ -94,7 +107,7 @@ class UdaSearchBox extends Component {
           })
       }
     }
-  }
+  
 
   onClickHandlerPlaces(e) {
     this.setState({
