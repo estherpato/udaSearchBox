@@ -77,6 +77,8 @@ class UdaSearchBox extends Component {
       }
       this.props.showCoordinates(lat, lng);
     } else if (this.state.cadastreActive) {
+      // I compare the cadastre reference on input with a second value I will save when I make the first API call
+      // If they are the same, I won't call the API again
       if (this.state.refCadastre === this.state.refCadastreApiCall) {
         console.log('hola')
         return null
