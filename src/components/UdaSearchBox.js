@@ -21,6 +21,7 @@ class UdaSearchBox extends Component {
       lng: null,
       token: null,
       refCadastre: '',
+      refCadastreApiCall: '',
       error: false,
     }
 
@@ -48,7 +49,7 @@ class UdaSearchBox extends Component {
   }
 
   onChangeHandlerCadastre(e) {
-    this.setState({ refCadastre: e.target.value })
+    this.setState({ refCadastre: e.target.value }, () => console.log(this.state.refCadastre))
   }
 
   //Get coordinates info by sending an address or a cadastre reference
@@ -57,7 +58,8 @@ class UdaSearchBox extends Component {
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
-      if (lat == null || lng == null) {
+      if (lat === null || lng === null
+        || lat === undefined || lng === undefined) {
         this.setState({
           error: true,
           popUpIsOpen: true,
@@ -65,26 +67,29 @@ class UdaSearchBox extends Component {
       }
       this.props.showCoordinates(lat, lng);
     } else if (this.state.cadastreActive) {
-      if (this.state.refCadastre === e.target.value) {
-        if (this.state.lat == null || this.state.lng == null) {
+      // I compare the cadastre reference on input with a second value I will save when I make the first API call
+      // If they are the same, I won't call the API again
+      if (this.state.refCadastre === this.state.refCadastreApiCall) {
+        if (this.state.lat === null || this.state.lng === null) {
           this.setState({
             error: true,
             popUpIsOpen: true,
-          });
+          })
         } else {
           return null
         }
-      } else if (this.state.refCadastre !== e.target.value) {
-        this.onChangeHandlerCadastre(e);
+      } else if ((this.state.refCadastreApiCall !== this.state.refCadastre)
+        && this.state.refCadastre !== '') {
+        console.log('step 1', this.state.refCadastre)
         coordinatesCadastre(this.state.token, this.state.refCadastre)
           .then((res) => {
-            if (res == undefined) {
-              console.log(res)
+            this.setState({ refCadastreApiCall: this.state.refCadastre })
+            if (res === undefined) {
               this.setState({
                 error: true,
                 popUpIsOpen: true,
               });
-            } else {
+            } else if (res !== undefined && this.state.lng === null) {
               this.setState({
                 lat: res.data.lat,
                 lng: res.data.lon,
@@ -104,6 +109,13 @@ class UdaSearchBox extends Component {
     })
   }
 
+  onClearHandlerPlaces() {
+    this.setState({
+      lat: null,
+      lng: null,
+    })
+  }
+
   onClickHandlerCadastre() {
     this.setState({
       placesActive: false,
@@ -115,7 +127,7 @@ class UdaSearchBox extends Component {
   onClosePopUp() {
     this.setState({
       popUpIsOpen: false,
-      error: false
+      error: false,
     },
       () => console.log(this.state.error, this.state.popUpIsOpen))
   }
@@ -148,6 +160,7 @@ class UdaSearchBox extends Component {
               config={configPlaces}
               onChangeHandlerPlaces={this.onChangeHandlerPlaces}
               onSubmitHandler={this.onSubmitHandler}
+              onChangeHandlerPlaces={this.onChangeHandlerPlaces}
             />}
           {((this.state.cadastreActive && cadastreOn)
             || (!placesOn && cadastreOn))

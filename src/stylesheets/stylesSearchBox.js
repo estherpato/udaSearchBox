@@ -73,6 +73,7 @@ const formCadastre = {
 }
 
 const inputCadastre = {
+    outline: 'none',
     width: '100%',
     height: '35px',
     padding: '0px',
@@ -86,7 +87,7 @@ const inputCadastre = {
 const modalSecction = {
     backgroundColor: 'rgb(231, 76, 60)',
     fontSize: '14px',
-    fontFamily: 'Gotham-Light, Sans Serif',
+    fontFamily: 'Gotham-Bold, Sans Serif',
     color: 'white',
     minWidth: '220px',
     maxWidth: '220px',

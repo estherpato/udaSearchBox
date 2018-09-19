@@ -3,6 +3,7 @@ import { formCadastre, inputCadastre, labelHidden } from '../stylesheets/stylesS
 import PropTypes from 'prop-types';
 
 class Cadastre extends Component {
+
     render() {
         const {
             placeholder,
