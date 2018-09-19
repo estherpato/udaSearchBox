@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import UdaSearchBox from './components/UdaSearchBox.js';
-
+import './stylesheets/fonts/fonts.css';
 //escribir en el readme cuales están marcadas por defecto
 
 const configUdaSearchBox = {

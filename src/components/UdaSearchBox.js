@@ -6,7 +6,7 @@ import PopUp from './PopUp.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
 import { coordinatesCadastre } from '../services/callCadastre.js';
-import { SearchBox, imputIconsBox } from '../stylesheets/stylesSearchBox.js';
+import { SearchBox, imputIconsBox, buttomSearchBox } from '../stylesheets/stylesSearchBox.js';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -57,34 +57,35 @@ class UdaSearchBox extends Component {
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
-      if (lat !== null && lng !== null) {
-        this.setState({
-          lat: lat,
-          lng: lng
-        }, () => console.log(this.state.lat, this.state.lng));
-      } else {
+      if (lat == null || lng == null) {
         this.setState({
           error: true,
           popUpIsOpen: true,
-        });
-      }
-    } else if (this.state.cadastreActive) {
+        }, () => console.log(this.state.lat, this.state.lng));
+       }
+      } else if (this.state.cadastreActive) {
       if (this.state.refCadastre === e.target.value) {
-        return null
+        if (this.state.lat == null || this.state.lng== null) {
+          this.setState({
+            error: true,
+            popUpIsOpen: true,
+          });
+        }else { return null}
       } else if (this.state.refCadastre !== e.target.value) {
         this.onChangeHandlerCadastre(e);
         coordinatesCadastre(this.state.token, this.state.refCadastre)
-          .then((res) => {
-            if (res !== undefined) {
-              this.setState({
-                lat: res.data.lat,
-                lng: res.data.lon
-              }, () => console.log(this.state.lat, this.state.lng));
-            } else {
-              this.setState({
-                error: true,
-                popUpIsOpen: true,
-              });
+        .then((res) => {
+               if (res == undefined) {
+                 console.log(res)
+                 this.setState({
+                   error: true,
+                   popUpIsOpen: true,
+                 });
+               } else {
+                 this.setState({
+                   lat: res.data.lat,
+                   lng: res.data.lon,
+                 }, () => console.log(this.state.lat, this.state.lng));
             }
           })
       }
@@ -92,11 +93,11 @@ class UdaSearchBox extends Component {
   }
 
   onClickHandlerPlaces(e) {
-    this.setState({ placesActive: true, cadastreActive: false })
+    this.setState({ placesActive: true, cadastreActive: false, error:false })
   }
 
   onClickHandlerCadastre() {
-    this.setState({ placesActive: false, cadastreActive: true })
+    this.setState({ placesActive: false, cadastreActive: true, error:false })
   }
 
   onClosePopUp() {
@@ -149,11 +150,13 @@ class UdaSearchBox extends Component {
           />
         </div>
 
+        <div style={buttomSearchBox}>
         {((this.state.cadastreActive && cadastreOn)
           || (!placesOn && cadastreOn))
           && <SearchButton
             onSubmitHandler={this.onSubmitHandler}
           />}
+        </div>
 
         {(this.state.error)
           && <PopUp

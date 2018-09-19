@@ -5,6 +5,11 @@ const SearchBox = {
     maxWidth: '800px',
 }
 
+const buttomSearchBox = {
+    width: '70px',
+    height: '35px',
+}
+
 const algoliaStyles = {
     style: 'false',
 }
@@ -115,4 +120,4 @@ const labelHidden = {
     display: 'none'
 }
 
-export { SearchBox, algoliaStyles, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox, formCadastre, inputCadastre, modalSecction, spanFonts, buttonClose, labelHidden};
+export { SearchBox, algoliaStyles, imputIconsBox, buttonSearch, placeIconBox, mapIconBox, IconsBox, inputBox, formCadastre, inputCadastre, modalSecction, spanFonts, buttonClose, labelHidden, buttomSearchBox };

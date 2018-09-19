@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
 import '../stylesheets/stylePlaces.css';
-import { inputBox, labelHidden } from '../stylesheets/stylesSearchBox';
+import { inputBox, labelHidden,} from '../stylesheets/stylesSearchBox';
 
 class Places extends Component {
 
@@ -42,7 +42,6 @@ class Places extends Component {
             <form
                 status={statusPlaces}
                 onSubmit={onSubmitHandler}
-
             >
                 <label
                     htmlFor="input-search"
