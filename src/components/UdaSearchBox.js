@@ -43,7 +43,8 @@ class UdaSearchBox extends Component {
     this.setState({
       lat: lat,
       lng: lng,
-    })
+    });
+    this.props.showCoordinates(lat, lng);
   }
 
   onChangeHandlerCadastre(e) {
@@ -88,10 +89,6 @@ class UdaSearchBox extends Component {
           })
       }
     }
-  }
-
-  componentDidUpdate() {
-    this.props.showCoordinates(this.state.lat, this.state.lng);
   }
 
   onClickHandlerPlaces(e) {
