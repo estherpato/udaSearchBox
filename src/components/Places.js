@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
-import '../stylesheets/style.css';
-import { inputBox, algoliaStyles } from '../stylesheets/StylesSearchBox';
+import '../stylesheets/stylePlaces.css';
+import { inputBox, labelHidden, } from '../stylesheets/stylesSearchBox';
 
 class Places extends Component {
 
@@ -17,14 +17,16 @@ class Places extends Component {
         const optionnalPropsKeys = ['type', 'countries', 'aroundLatLng', 'aroundRadius', 'templates', 'appId', 'apiKey'];
 
         for (let optionnalPropKey of optionnalPropsKeys) {
-            if (this.props[optionnalPropKey]) { options[optionnalPropKey] = this.props[optionnalPropKey]; }
+            if (this.props[optionnalPropKey]) {
+                options[optionnalPropKey] = this.props[optionnalPropKey];
+            }
         }
 
         const autocomplete = place(options);
         autocomplete.on('change', (e) => {
             const lat = e.suggestion.latlng.lat;
             const lng = e.suggestion.latlng.lng;
-            this.props.onChangeHandler(lat, lng)
+            this.props.onChangeHandlerPlaces(lat, lng)
         });
         autocomplete.on('suggestions', this.props.onSuggestions);
         autocomplete.on('clear', this.props.onClear);
@@ -37,20 +39,21 @@ class Places extends Component {
             config,
             onSubmitHandler,
         } = this.props
-        console.log(this.props)
+
         return (
             <form
                 status={statusPlaces}
                 onSubmit={onSubmitHandler}
-
             >
                 <label
                     htmlFor="input-search"
-                    style={{ display: 'none' }}
+                    style={labelHidden}
                 >
                     {placeholder}
                 </label>
-                <input style={inputBox} id='urbanTourPlaces'
+                <input
+                    style={inputBox}
+                    id='urbanTourPlaces'
                     placeholder={placeholder}
                     ref={(input) => { this.autoCompletePlace = input; }} />
             </form>
