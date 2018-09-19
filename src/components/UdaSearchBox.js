@@ -78,13 +78,12 @@ class UdaSearchBox extends Component {
               this.setState({
                 error: true,
                 popUpIsOpen: true,
-              }, () => console.log(this.state.lat, this.state.lng));
+              });
             } else {
-              console.log("holicaracoli", this.setState)
               this.setState({
                 lat: res.data.lat,
                 lng: res.data.lon,
-              });
+              }, () => console.log(this.state.lat, this.state.lng));
             }
           })
       }
