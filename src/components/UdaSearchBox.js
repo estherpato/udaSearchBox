@@ -50,26 +50,16 @@ class UdaSearchBox extends Component {
 
   onChangeHandlerCadastre(e) {
     this.setState({ refCadastre: e.target.value }, () => console.log(this.state.refCadastre))
-    // if(this.state.lat !== null || this.state.lng !== null
-    // && this.state.refCadastre === e.target.value) {
-    //   this.setState({
-    //     lat: null,
-    //     lng: null,         
-    //   }, () => console.log('change', this.state.lat, this.state.lng))
-    // }else {
-    //   this.setState({ refCadastre: e.target.value })
-    // }
   }
 
   //Get coordinates info by sending an address or a cadastre reference
   onSubmitHandler(e) {
-    console.log('ref cadastre', this.state.refCadastre)
-    console.log('api call', this.state.refCadastreApiCall)
     e.preventDefault();
     if (this.state.placesActive) {
       const lat = this.state.lat;
       const lng = this.state.lng;
-      if (lat === null || lng === null) {
+      if (lat === null || lng === null
+        || lat === undefined || lng === undefined) {
         this.setState({
           error: true,
           popUpIsOpen: true,
@@ -94,8 +84,7 @@ class UdaSearchBox extends Component {
         coordinatesCadastre(this.state.token, this.state.refCadastre)
           .then((res) => {
             this.setState({ refCadastreApiCall: this.state.refCadastre })
-            if (res === undefined && this.state.lng === null) {
-              console.log(res)
+            if (res === undefined) {
               this.setState({
                 error: true,
                 popUpIsOpen: true,
@@ -120,7 +109,7 @@ class UdaSearchBox extends Component {
     })
   }
 
-  onClearHandlerPlaces(e) {
+  onClearHandlerPlaces() {
     this.setState({
       lat: null,
       lng: null,
