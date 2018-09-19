@@ -62,16 +62,18 @@ class UdaSearchBox extends Component {
           error: true,
           popUpIsOpen: true,
         }, () => console.log(this.state.lat, this.state.lng));
-       }
-       this.props.showCoordinates(lat,lng);
-      } else if (this.state.cadastreActive) {
+      }
+      this.props.showCoordinates(lat, lng);
+    } else if (this.state.cadastreActive) {
       if (this.state.refCadastre === e.target.value) {
-        if (this.state.lat == null || this.state.lng== null) {
+        if (this.state.lat == null || this.state.lng == null) {
           this.setState({
             error: true,
             popUpIsOpen: true,
           });
-        }else { return null}
+        } else {
+          return null
+        }
       } else if (this.state.refCadastre !== e.target.value) {
         this.onChangeHandlerCadastre(e);
         coordinatesCadastre(this.state.token, this.state.refCadastre)
@@ -88,22 +90,34 @@ class UdaSearchBox extends Component {
                 lng: res.data.lon,
               }, () => console.log(this.state.lat, this.state.lng));
             }
-              this.props.showCoordinates(this.state.lat,this.state.lng);
+            this.props.showCoordinates(this.state.lat, this.state.lng);
           })
-        }
       }
     }
+  }
 
   onClickHandlerPlaces(e) {
-    this.setState({ placesActive: true, cadastreActive: false, error:false })
+    this.setState({
+      placesActive: true,
+      cadastreActive: false,
+      error: false
+    })
   }
 
   onClickHandlerCadastre() {
-    this.setState({ placesActive: false, cadastreActive: true, error:false })
+    this.setState({
+      placesActive: false,
+      cadastreActive: true,
+      error: false
+    })
   }
 
   onClosePopUp() {
-    this.setState({ popUpIsOpen: false, error: false }, () => console.log(this.state.error, this.state.popUpIsOpen))
+    this.setState({
+      popUpIsOpen: false,
+      error: false
+    },
+      () => console.log(this.state.error, this.state.popUpIsOpen))
   }
 
   render() {
@@ -153,11 +167,11 @@ class UdaSearchBox extends Component {
         </div>
 
         <div style={buttomSearchBox}>
-        {((this.state.cadastreActive && cadastreOn)
-          || (!placesOn && cadastreOn))
-          && <SearchButton
-            onSubmitHandler={this.onSubmitHandler}
-          />}
+          {((this.state.cadastreActive && cadastreOn)
+            || (!placesOn && cadastreOn))
+            && <SearchButton
+              onSubmitHandler={this.onSubmitHandler}
+            />}
         </div>
 
         {(this.state.error)

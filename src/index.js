@@ -39,14 +39,15 @@ const showCoordinates =
   }
 
 
-ReactDOM.render(<UdaSearchBox
-  showCoordinates={showCoordinates}
-  placeholderPlaces={configUdaSearchBox.placeholderPlaces}
-  placeholderCadastre={configUdaSearchBox.placeholderCadastre}
-  placesOn={configUdaSearchBox.placesOn}
-  cadastreOn={configUdaSearchBox.cadastreOn}
-  onSubmit={configUdaSearchBox.onSubmit}
-  style={configUdaSearchBox.style}
-  configPlaces={configUdaSearchBox.configPlaces}
-  configCadastre={configUdaSearchBox.configCadastre}
-/>, document.getElementById('root'));
+ReactDOM.render(
+  <UdaSearchBox
+    showCoordinates={showCoordinates}
+    placeholderPlaces={configUdaSearchBox.placeholderPlaces}
+    placeholderCadastre={configUdaSearchBox.placeholderCadastre}
+    placesOn={configUdaSearchBox.placesOn}
+    cadastreOn={configUdaSearchBox.cadastreOn}
+    onSubmit={configUdaSearchBox.onSubmit}
+    style={configUdaSearchBox.style}
+    configPlaces={configUdaSearchBox.configPlaces}
+    configCadastre={configUdaSearchBox.configCadastre}
+  />, document.getElementById('root'));

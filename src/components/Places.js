@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import place from 'places.js';
 import '../stylesheets/stylePlaces.css';
-import { inputBox, labelHidden,} from '../stylesheets/stylesSearchBox';
+import { inputBox, labelHidden, } from '../stylesheets/stylesSearchBox';
 
 class Places extends Component {
 
@@ -17,7 +17,9 @@ class Places extends Component {
         const optionnalPropsKeys = ['type', 'countries', 'aroundLatLng', 'aroundRadius', 'templates', 'appId', 'apiKey'];
 
         for (let optionnalPropKey of optionnalPropsKeys) {
-            if (this.props[optionnalPropKey]) { options[optionnalPropKey] = this.props[optionnalPropKey]; }
+            if (this.props[optionnalPropKey]) {
+                options[optionnalPropKey] = this.props[optionnalPropKey];
+            }
         }
 
         const autocomplete = place(options);
