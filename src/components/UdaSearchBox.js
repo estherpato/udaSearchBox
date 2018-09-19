@@ -21,7 +21,7 @@ class UdaSearchBox extends Component {
       lng: null,
       token: null,
       refCadastre: '',
-      refApiCall: '',
+      refCadastreApiCall: '',
       error: false,
     }
 
@@ -59,10 +59,12 @@ class UdaSearchBox extends Component {
     // }else {
     //   this.setState({ refCadastre: e.target.value })
     // }
-    }
+  }
 
   //Get coordinates info by sending an address or a cadastre reference
   onSubmitHandler(e) {
+    console.log('ref cadastre', this.state.refCadastre)
+    console.log('api call', this.state.refCadastreApiCall)
     e.preventDefault();
     if (this.state.placesActive) {
       const lat = this.state.lat;
@@ -75,22 +77,15 @@ class UdaSearchBox extends Component {
       }
       this.props.showCoordinates(lat, lng);
     } else if (this.state.cadastreActive) {
-     if (this.state.refCadastre === this.state.refApiCall) {
+      if (this.state.refCadastre === this.state.refCadastreApiCall) {
+        console.log('hola')
         return null
-      }
-        // if (this.state.lat === null || this.state.lng === null) {
-        //   this.setState({
-        //     error: true,
-        //     popUpIsOpen: true,
-        //   });
-        // } else 
-        // {
-        //   return null
-        // }
-      } else if (this.state.refApiCall !== this.state.refCadastre) {
-        this.onChangeHandlerCadastre(e);
+      } else if ((this.state.refCadastreApiCall !== this.state.refCadastre)
+        && this.state.refCadastre !== '') {
+        console.log('step 1', this.state.refCadastre)
         coordinatesCadastre(this.state.token, this.state.refCadastre)
           .then((res) => {
+            this.setState({ refCadastreApiCall: this.state.refCadastre })
             if (res === undefined && this.state.lng === null) {
               console.log(res)
               this.setState({
@@ -107,7 +102,7 @@ class UdaSearchBox extends Component {
           })
       }
     }
-  
+  }
 
   onClickHandlerPlaces(e) {
     this.setState({
