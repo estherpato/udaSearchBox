@@ -6,7 +6,7 @@ import PopUp from './PopUp.js';
 import SearchButton from './SearchButton';
 import { getToken } from '../services/auth.js';
 import { coordinatesCadastre } from '../services/callCadastre.js';
-import { SearchBox, imputIconsBox } from '../stylesheets/stylesSearchBox.js';
+import { SearchBox, imputIconsBox, buttomSearchBox } from '../stylesheets/stylesSearchBox.js';
 
 class UdaSearchBox extends Component {
   constructor(props) {
@@ -146,11 +146,13 @@ class UdaSearchBox extends Component {
           />
         </div>
 
+        <div style={buttomSearchBox}>
         {((this.state.cadastreActive && cadastreOn)
           || (!placesOn && cadastreOn))
           && <SearchButton
             onSubmitHandler={this.onSubmitHandler}
           />}
+        </div>
 
         {(this.state.error)
           && <PopUp
