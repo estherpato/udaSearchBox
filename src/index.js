@@ -32,15 +32,6 @@ const configUdaSearchBox = {
   }
 }
 
-// const coordinates = {
-//   lat:null,
-//   lon:null
-// }
-
-// setInterval(function(){
-//   console.log(coordinates);
-// }, 5000);
-
 const showCoordinates =
   (lat,lon) => {
     console.log(lat);
@@ -49,8 +40,6 @@ const showCoordinates =
 
 
 ReactDOM.render(<UdaSearchBox
-  // coordinates={coordinates}
-
   showCoordinates={showCoordinates}
   placeholderPlaces={configUdaSearchBox.placeholderPlaces}
   placeholderCadastre={configUdaSearchBox.placeholderCadastre}
