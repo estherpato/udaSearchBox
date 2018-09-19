@@ -70,7 +70,8 @@ class UdaSearchBox extends Component {
       // I compare the cadastre reference on input with a second value I will save when I make the first API call
       // If they are the same, I won't call the API again
       if (this.state.refCadastre === this.state.refCadastreApiCall) {
-        if (this.state.lat === null || this.state.lng === null) {
+        if (this.state.lat === null || this.state.lng === null 
+          || this.state.lat === undefined || this.state.lng === undefined) {
           this.setState({
             error: true,
             popUpIsOpen: true,
