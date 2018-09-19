@@ -104,6 +104,13 @@ class UdaSearchBox extends Component {
     })
   }
 
+  onClearHandlerPlaces(e) {
+    this.setState({
+      lat: null,
+      lng: null,
+    })
+  }
+
   onClickHandlerCadastre() {
     this.setState({
       placesActive: false,
@@ -115,7 +122,7 @@ class UdaSearchBox extends Component {
   onClosePopUp() {
     this.setState({
       popUpIsOpen: false,
-      error: false
+      error: false,
     },
       () => console.log(this.state.error, this.state.popUpIsOpen))
   }
@@ -148,6 +155,7 @@ class UdaSearchBox extends Component {
               config={configPlaces}
               onChangeHandlerPlaces={this.onChangeHandlerPlaces}
               onSubmitHandler={this.onSubmitHandler}
+              onChangeHandlerPlaces={this.onChangeHandlerPlaces}
             />}
           {((this.state.cadastreActive && cadastreOn)
             || (!placesOn && cadastreOn))

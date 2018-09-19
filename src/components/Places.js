@@ -29,7 +29,9 @@ class Places extends Component {
             this.props.onChangeHandlerPlaces(lat, lng)
         });
         autocomplete.on('suggestions', this.props.onSuggestions);
-        autocomplete.on('clear', this.props.onClear);
+        autocomplete.on('clear', 
+        (e) => {
+        this.props.onChangeHandlerPlaces()});
     }
 
     render() {
