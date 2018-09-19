@@ -32,7 +32,15 @@ const configUdaSearchBox = {
   }
 }
 
+const showCoordinates =
+  (lat,lon) => {
+    console.log(lat);
+    console.log(lon);
+  }
+
+
 ReactDOM.render(<UdaSearchBox
+  showCoordinates={showCoordinates}
   placeholderPlaces={configUdaSearchBox.placeholderPlaces}
   placeholderCadastre={configUdaSearchBox.placeholderCadastre}
   placesOn={configUdaSearchBox.placesOn}

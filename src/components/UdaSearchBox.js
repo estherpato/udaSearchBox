@@ -12,6 +12,7 @@ class UdaSearchBox extends Component {
   constructor(props) {
     super(props);
 
+
     this.state = {
       placesActive: true,
       cadastreActive: false,
@@ -42,7 +43,8 @@ class UdaSearchBox extends Component {
     this.setState({
       lat: lat,
       lng: lng,
-    })
+    });
+    this.props.showCoordinates(lat, lng);
   }
 
   onChangeHandlerCadastre(e) {
@@ -61,13 +63,14 @@ class UdaSearchBox extends Component {
           popUpIsOpen: true,
         }, () => console.log(this.state.lat, this.state.lng));
        }
+       this.props.showCoordinates(lat,lng);
       } else if (this.state.cadastreActive) {
       if (this.state.refCadastre === e.target.value) {
         if (this.state.lat == null || this.state.lng== null) {
           this.setState({
             error: true,
             popUpIsOpen: true,
-          }, () => console.log(this.state.lat, this.state.lng));
+          });
         }else { return null}
       } else if (this.state.refCadastre !== e.target.value) {
         this.onChangeHandlerCadastre(e);
@@ -85,10 +88,11 @@ class UdaSearchBox extends Component {
                 lng: res.data.lon,
               }, () => console.log(this.state.lat, this.state.lng));
             }
+              this.props.showCoordinates(this.state.lat,this.state.lng);
           })
+        }
       }
     }
-  }
 
   onClickHandlerPlaces(e) {
     this.setState({ placesActive: true, cadastreActive: false, error:false })
@@ -109,6 +113,8 @@ class UdaSearchBox extends Component {
       placesOn,
       cadastreOn,
       configPlaces,
+      coordinates,
+      showCoordinates
     } = this.props;
 
     const {
@@ -116,6 +122,7 @@ class UdaSearchBox extends Component {
       cadastreActive,
       popUpIsOpen,
     } = this.state
+
 
     return (
       <div style={SearchBox}>
