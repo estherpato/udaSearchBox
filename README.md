@@ -40,10 +40,6 @@ https://community.algolia.com/places/documentation.html
 | ------ | ------ | ------ |
 | onChange | boolean | False by default |
 
-# How to use it
-
-**nada porque no hay npm todavía**
-
 # Interesting Data
 
 - UdaSearch box is made with inline Styling, however, to modify default styles from algolia we've had to use CSS3. 
