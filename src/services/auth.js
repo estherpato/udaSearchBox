@@ -13,7 +13,7 @@ export function getToken(user, pwd) {
                 resolve(res)
             })
             .catch(function (e) {
-                let error = new Error('Bad credentials. This component will works but you still will need a valid token for most uDA components. Please contact support@urbandataanalytics.com to get your token.', e);
+                let error = new Error('Bad credentials. This component will work and you will be able to catch coordinates from an address but you still will need a valid token for most uDA components. Please contact support@urbandataanalytics.com to get your token.', e);
                 reject(error);
               });
         
