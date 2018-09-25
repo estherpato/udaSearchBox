@@ -34,7 +34,7 @@ class UdaSearchBox extends Component {
   }
 
   componentDidMount() {
-    getToken('your user', 'your password')
+    getToken(this.props.credentials.user, this.props.credentials.password)
       .then((res) => {
         this.setState({ token: res.data.authToken });
       })
@@ -139,6 +139,7 @@ class UdaSearchBox extends Component {
 
   render() {
     const {
+      credentials,
       placeholderPlaces,
       placeholderCadastre,
       placesOn,
