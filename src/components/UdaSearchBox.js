@@ -34,10 +34,14 @@ class UdaSearchBox extends Component {
   }
 
   componentDidMount() {
-    getToken('adalab', '4286')
+    getToken('your user', 'your password')
       .then((res) => {
         this.setState({ token: res.data.authToken });
       })
+      .catch(e => {
+        console.log(e.message)
+    })
+    
   }
 
   onChangeHandlerPlaces(lat, lng) {
